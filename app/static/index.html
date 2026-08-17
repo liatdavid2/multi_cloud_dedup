@@ -86,10 +86,10 @@
 
   <div class="panel">
     <h2>5. Selected clustering result</h2>
-    <div class="recommend"><div><div class="eyebrow">SELECTED</div><div class="big"><span id="selectedAlgorithm">—</span> · <span id="selectedK">—</span> clusters</div><p id="selectedMetrics">—</p></div></div>
+    <div class="recommend"><div><div class="eyebrow">SELECTED</div><div class="big"><span id="selectedAlgorithm">—</span> · <span id="selectedK">—</span> clusters</div><div class="recommend-detail"><b>Stable range:</b> <span id="stableRange">—</span> · <b>Confidence:</b> <span id="confidence">—</span></div><p id="selectedMetrics">—</p></div></div>
   </div>
 
-  <div class="panel"><h2>6. Cluster map</h2><p>PCA is used only for 2D visualization; clustering uses the full selected feature space. Gray points are HDBSCAN outliers, not an extra cluster.</p><div id="plotLegend" class="plot-legend"></div><svg id="clusterPlot" viewBox="0 0 900 360" class="plot"></svg></div>
+  <div class="panel"><h2>6. Cluster map</h2><p>PCA is used only for 2D visualization; clustering uses the full selected feature space. Gray points are HDBSCAN outliers, not an extra cluster. Overlapping configurations may appear as one point.</p><div id="plotLegend" class="plot-legend"></div><svg id="clusterPlot" viewBox="0 0 900 360" class="plot"></svg></div>
 
   <div class="panel"><h2>7. Number-of-clusters quality</h2><p>For fixed-k algorithms this shows the tested k values. HDBSCAN instead tests several min-cluster-size values.</p><div id="curve" class="curve"></div></div>
 

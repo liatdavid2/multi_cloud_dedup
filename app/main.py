@@ -152,17 +152,25 @@ def stability_score(X, full_labels, alg, params, runs=12, fraction=.8):
     return float(np.mean(vals)) if vals else 0.0
 
 
-def perturbation_robustness(X, full_labels, alg, params, runs=10, sigma=.03):
-    rng=np.random.default_rng(2026); vals=[]
-    scale=np.std(X,axis=0); scale=np.where(scale==0,1.0,scale)
-    for i in range(runs):
-        Xp=X+rng.normal(0,sigma,size=X.shape)*scale
-        try:
-            lp=refit_on_matrix(Xp,alg,params,42+i)
-            vals.append(adjusted_rand_score(full_labels,lp))
-        except Exception: pass
-    return float(np.mean(vals)) if vals else 0.0
+def perturbation_robustness(X, base_labels, algorithm, k=None, runs=8):
+    scores = []
+    base_labels = np.asarray(base_labels)
 
+    for seed in range(runs):
+        try:
+            perturbed = stronger_perturbation_labels(
+                X, base_labels, algorithm, k=k, random_state=100 + seed
+            )
+            mask = (base_labels != -1) & (np.asarray(perturbed) != -1)
+
+            if mask.sum() >= 3 and len(set(base_labels[mask])) >= 2 and len(set(np.asarray(perturbed)[mask])) >= 2:
+                scores.append(float(adjusted_rand_score(base_labels[mask], np.asarray(perturbed)[mask])))
+        except Exception:
+            pass
+
+    if not scores:
+        return 0.0
+    return float(np.mean(scores))
 
 def minmax(vals, reverse=False):
     arr=np.array([np.nan if v is None else float(v) for v in vals],dtype=float)
@@ -230,6 +238,95 @@ def evaluation_bundle(X,n,result_rows):
         'formula':'30% stability + 20% perturbation robustness + 20% cross-algorithm agreement + 25% internal quality + 5% outlier retention',
     }
 
+
+
+def derive_stable_range(curve, selected_k):
+    """
+    Return a small range of near-optimal cluster counts rather than pretending
+    a single k is uniquely correct. Any run within 0.005 of the best score is
+    considered practically tied.
+    """
+    if not curve:
+        return {
+            "min_k": selected_k,
+            "max_k": selected_k,
+            "default_k": selected_k,
+            "confidence": "Moderate",
+            "note": "This method does not expose a fixed-k quality curve."
+        }
+
+    usable = [p for p in curve if p.get("k", 0) >= 2 and "score" in p]
+    if not usable:
+        return {
+            "min_k": selected_k,
+            "max_k": selected_k,
+            "default_k": selected_k,
+            "confidence": "Moderate",
+            "note": "No comparable fixed-k scores were available."
+        }
+
+    best = max(p["score"] for p in usable)
+    near = [p["k"] for p in usable if best - p["score"] <= 0.005]
+
+    if not near:
+        near = [selected_k]
+
+    min_k, max_k = min(near), max(near)
+    width = max_k - min_k
+
+    if width == 0:
+        confidence = "High"
+    elif width <= 2:
+        confidence = "Moderate"
+    else:
+        confidence = "Low"
+
+    return {
+        "min_k": int(min_k),
+        "max_k": int(max_k),
+        "default_k": int(selected_k),
+        "confidence": confidence,
+        "note": (
+            f"{len(near)} cluster-count choices are within 0.005 of the best score; "
+            "they should be treated as practically tied."
+        )
+    }
+
+
+def stronger_perturbation_labels(X, base_labels, algorithm, k=None, random_state=42):
+    """
+    Stronger perturbation test:
+    - numeric/noisy perturbation over the encoded feature space
+    - random feature dropout on ~10% of columns
+    This is intentionally stronger than tiny Gaussian noise.
+    """
+    rng = np.random.default_rng(random_state)
+    Xp = np.asarray(X, dtype=float).copy()
+
+    if Xp.size == 0:
+        return base_labels
+
+    # Gaussian perturbation scaled to observed feature std.
+    std = Xp.std(axis=0)
+    noise_scale = np.where(std > 0, std * 0.08, 0.02)
+    Xp += rng.normal(0, noise_scale, size=Xp.shape)
+
+    # Drop about 10% of feature dimensions.
+    n_features = Xp.shape[1]
+    drop_n = max(1, int(round(n_features * 0.10)))
+    drop_idx = rng.choice(n_features, size=min(drop_n, n_features), replace=False)
+    Xp[:, drop_idx] = 0.0
+
+    if algorithm == "agglomerative":
+        return AgglomerativeClustering(n_clusters=int(k), linkage="ward").fit_predict(Xp)
+    if algorithm == "kmeans":
+        return KMeans(n_clusters=int(k), n_init="auto", random_state=random_state).fit_predict(Xp)
+    if algorithm == "hdbscan":
+        # Keep a small minimum cluster size; this is only robustness evaluation.
+        mcs = max(2, min(8, int(round(len(Xp) * 0.05))))
+        return HDBSCAN(min_cluster_size=mcs).fit_predict(Xp)
+
+    return base_labels
 
 def json_safe(v):
     if pd.isna(v): return None
