@@ -152,24 +152,88 @@ def stability_score(X, full_labels, alg, params, runs=12, fraction=.8):
     return float(np.mean(vals)) if vals else 0.0
 
 
-def perturbation_robustness(X, base_labels, algorithm, k=None, runs=8):
-    scores = []
+def perturbation_robustness(X, base_labels, algorithm, k=None, runs=15, sample_fraction=0.90):
+    """
+    Robustness via repeated 90% subsampling.
+
+    Each run:
+      1. sample 90% of configurations without replacement,
+      2. refit the same clustering method on the subsample,
+      3. compare the new labels against the original labels for those same
+         configurations using Adjusted Rand Index (ARI).
+
+    This avoids synthetic feature perturbations and measures whether the
+    clustering structure survives modest data removal.
+    """
+    X = np.asarray(X, dtype=float)
     base_labels = np.asarray(base_labels)
+    n = len(X)
+
+    if n < 5:
+        return 0.0
+
+    scores = []
 
     for seed in range(runs):
-        try:
-            perturbed = stronger_perturbation_labels(
-                X, base_labels, algorithm, k=k, random_state=100 + seed
-            )
-            mask = (base_labels != -1) & (np.asarray(perturbed) != -1)
+        rng = np.random.default_rng(1000 + seed)
+        sample_n = max(3, int(round(n * sample_fraction)))
+        idx = np.sort(rng.choice(n, size=sample_n, replace=False))
+        Xs = X[idx]
 
-            if mask.sum() >= 3 and len(set(base_labels[mask])) >= 2 and len(set(np.asarray(perturbed)[mask])) >= 2:
-                scores.append(float(adjusted_rand_score(base_labels[mask], np.asarray(perturbed)[mask])))
+        try:
+            if algorithm == "agglomerative":
+                kk = int(k or len(set(base_labels.tolist())))
+                kk = max(2, min(kk, len(Xs) - 1))
+                new_labels = AgglomerativeClustering(
+                    n_clusters=kk,
+                    linkage="ward"
+                ).fit_predict(Xs)
+
+            elif algorithm == "kmeans":
+                kk = int(k or len(set(base_labels.tolist())))
+                kk = max(2, min(kk, len(Xs) - 1))
+                new_labels = KMeans(
+                    n_clusters=kk,
+                    n_init="auto",
+                    random_state=42 + seed
+                ).fit_predict(Xs)
+
+            elif algorithm == "hdbscan":
+                # Reuse an approximate density scale from the full result.
+                non_noise = base_labels[base_labels != -1]
+                base_k = len(set(non_noise.tolist())) if len(non_noise) else 2
+                mcs = max(2, min(12, int(round(len(Xs) / max(2, base_k * 4)))))
+                new_labels = HDBSCAN(
+                    min_cluster_size=mcs
+                ).fit_predict(Xs)
+            else:
+                continue
+
+            ref = base_labels[idx]
+            new_labels = np.asarray(new_labels)
+
+            # For HDBSCAN, compare only points assigned to a real cluster in
+            # both runs. Noise is useful information but should not dominate
+            # the robustness score.
+            mask = (ref != -1) & (new_labels != -1)
+
+            if mask.sum() < 3:
+                continue
+            if len(set(ref[mask].tolist())) < 2:
+                continue
+            if len(set(new_labels[mask].tolist())) < 2:
+                continue
+
+            scores.append(
+                float(adjusted_rand_score(ref[mask], new_labels[mask]))
+            )
+
         except Exception:
-            pass
+            continue
 
     if not scores:
         return 0.0
+
     return float(np.mean(scores))
 
 def minmax(vals, reverse=False):
@@ -217,7 +281,7 @@ def evaluation_bundle(X,n,result_rows):
     winner=max(result_rows,key=lambda r:r['evaluation_score'])
     explanation=(
         f"{winner['algorithm']} is recommended automatically. The decision does not use a majority vote on the number of clusters. "
-        f"It combines stability ({winner['stability']:.2f}), perturbation robustness ({winner['robustness']:.2f}), "
+        f"It combines stability ({winner['stability']:.2f}), 90% subsampling robustness ({winner['robustness']:.2f}), "
         f"agreement with other methods ({winner['agreement']:.2f}), internal cluster quality, and the outlier rate."
     )
     public=[]
@@ -235,98 +299,103 @@ def evaluation_bundle(X,n,result_rows):
         'rows':public,
         'agreement':{'algorithms':names,'ari':[[round(x,3) for x in row] for row in ari],
                      'nmi':[[round(x,3) for x in row] for row in nmi]},
-        'formula':'30% stability + 20% perturbation robustness + 20% cross-algorithm agreement + 25% internal quality + 5% outlier retention',
+        'formula':'30% stability + 20% 90% subsampling robustness + 20% cross-algorithm agreement + 25% internal quality + 5% outlier retention',
     }
 
 
 
 def derive_stable_range(curve, selected_k):
     """
-    Return a small range of near-optimal cluster counts rather than pretending
-    a single k is uniquely correct. Any run within 0.005 of the best score is
-    considered practically tied.
+    Find a practical cluster-count range rather than pretending one k is exact.
+
+    Any candidate whose score is within 0.005 of the best score is treated as
+    practically tied.
+
+    Works for:
+      - Agglomerative / K-Means curves: each row has k=<tested cluster count>
+      - HDBSCAN curves: each row has k=<resulting cluster count> and
+        min_cluster_size=<density parameter>
     """
     if not curve:
         return {
-            "min_k": selected_k,
-            "max_k": selected_k,
-            "default_k": selected_k,
+            "min_k": int(selected_k),
+            "max_k": int(selected_k),
+            "default_k": int(selected_k),
             "confidence": "Moderate",
-            "note": "This method does not expose a fixed-k quality curve."
+            "note": "No cluster-count quality curve was available."
         }
 
-    usable = [p for p in curve if p.get("k", 0) >= 2 and "score" in p]
-    if not usable:
+    candidates = []
+    for p in curve:
+        if "score" not in p:
+            continue
+
+        # k is the actual resulting cluster count. For HDBSCAN this is not the
+        # same as min_cluster_size.
+        actual_k = p.get("k")
+        if actual_k is None:
+            actual_k = p.get("clusters")
+
+        try:
+            actual_k = int(actual_k)
+        except Exception:
+            continue
+
+        if actual_k >= 2:
+            candidates.append({
+                "k": actual_k,
+                "score": float(p["score"])
+            })
+
+    if not candidates:
         return {
-            "min_k": selected_k,
-            "max_k": selected_k,
-            "default_k": selected_k,
+            "min_k": int(selected_k),
+            "max_k": int(selected_k),
+            "default_k": int(selected_k),
             "confidence": "Moderate",
-            "note": "No comparable fixed-k scores were available."
+            "note": "No comparable cluster-count scores were available."
         }
 
-    best = max(p["score"] for p in usable)
-    near = [p["k"] for p in usable if best - p["score"] <= 0.005]
+    best = max(p["score"] for p in candidates)
+
+    near = [
+        p["k"]
+        for p in candidates
+        if best - p["score"] <= 0.005
+    ]
 
     if not near:
-        near = [selected_k]
+        near = [int(selected_k)]
 
+    # Deduplicate because HDBSCAN may produce the same cluster count for
+    # several min_cluster_size values.
+    near = sorted(set(near))
     min_k, max_k = min(near), max(near)
-    width = max_k - min_k
 
-    if width == 0:
+    if len(near) == 1:
         confidence = "High"
-    elif width <= 2:
+    elif max_k - min_k <= 2:
         confidence = "Moderate"
     else:
         confidence = "Low"
+
+    if min_k == max_k:
+        note = (
+            f"{min_k} clusters is clearly preferred within the tested candidates."
+        )
+    else:
+        note = (
+            f"{min_k}–{max_k} clusters are practically tied "
+            f"(within 0.005 of the best score)."
+        )
 
     return {
         "min_k": int(min_k),
         "max_k": int(max_k),
         "default_k": int(selected_k),
         "confidence": confidence,
-        "note": (
-            f"{len(near)} cluster-count choices are within 0.005 of the best score; "
-            "they should be treated as practically tied."
-        )
+        "note": note,
     }
-
-
-def stronger_perturbation_labels(X, base_labels, algorithm, k=None, random_state=42):
-    """
-    Stronger perturbation test:
-    - numeric/noisy perturbation over the encoded feature space
-    - random feature dropout on ~10% of columns
-    This is intentionally stronger than tiny Gaussian noise.
-    """
-    rng = np.random.default_rng(random_state)
-    Xp = np.asarray(X, dtype=float).copy()
-
-    if Xp.size == 0:
-        return base_labels
-
-    # Gaussian perturbation scaled to observed feature std.
-    std = Xp.std(axis=0)
-    noise_scale = np.where(std > 0, std * 0.08, 0.02)
-    Xp += rng.normal(0, noise_scale, size=Xp.shape)
-
-    # Drop about 10% of feature dimensions.
-    n_features = Xp.shape[1]
-    drop_n = max(1, int(round(n_features * 0.10)))
-    drop_idx = rng.choice(n_features, size=min(drop_n, n_features), replace=False)
-    Xp[:, drop_idx] = 0.0
-
-    if algorithm == "agglomerative":
-        return AgglomerativeClustering(n_clusters=int(k), linkage="ward").fit_predict(Xp)
-    if algorithm == "kmeans":
-        return KMeans(n_clusters=int(k), n_init="auto", random_state=random_state).fit_predict(Xp)
-    if algorithm == "hdbscan":
-        # Keep a small minimum cluster size; this is only robustness evaluation.
-        mcs = max(2, min(8, int(round(len(Xp) * 0.05))))
-        return HDBSCAN(min_cluster_size=mcs).fit_predict(Xp)
-
-    return base_labels
 
 def json_safe(v):
     if pd.isna(v): return None

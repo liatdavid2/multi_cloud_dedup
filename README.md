@@ -25,3 +25,19 @@ Robustness evaluation was also strengthened with:
 - ~10% random feature dropout
 
 The PCA plot is visualization only; overlapping configurations can appear as one point.
+
+
+## Final evaluation refinement
+
+Robustness now uses repeated **90% subsampling** rather than synthetic feature
+noise.
+
+For each algorithm the application:
+- samples 90% of configurations without replacement,
+- refits the same clustering method,
+- compares assignments on the shared configurations with Adjusted Rand Index,
+- repeats this 15 times and reports the mean ARI.
+
+HDBSCAN stable-range logic now uses the **actual number of clusters produced**
+for each tested `min_cluster_size`, so ranges such as `2–4 clusters` can be
+shown correctly.
