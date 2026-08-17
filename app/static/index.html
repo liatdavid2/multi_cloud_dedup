@@ -10,7 +10,6 @@
 <aside>
   <div class="brand">◈ Config Clustering</div>
   <button class="nav active" data-page="analysis">Clustering</button>
-  <button class="nav" data-page="data">Real Data</button>
   <div class="source">Source<br><b>Local data/Grid5000.csv</b><br>No Internet access</div>
 </aside>
 
@@ -43,36 +42,63 @@
       <button id="analyzeBtn" class="primary">Analyze clustering</button>
     </div>
     <div id="columnPicker" class="picker"></div>
+    <div class="algorithm-row">
+      <label><b>Clustering method</b>
+        <select id="algorithmSelect">
+          <option value="auto">Auto / Best score</option>
+          <option value="agglomerative">Agglomerative</option>
+          <option value="kmeans">K-Means</option>
+          <option value="hdbscan">HDBSCAN</option>
+        </select>
+      </label>
+      <span class="muted-inline">Auto runs all three and compares them.</span>
+    </div>
   </div>
 
+  
   <div id="resultArea" class="hidden">
     <div class="panel">
       <div class="recommend">
         <div>
-          <div class="eyebrow">RECOMMENDED</div>
-          <div class="big"><span id="fromCount">—</span> → <span id="recommendedK">—</span> groups</div>
-          <p>Balances cluster separation with configuration reduction.</p>
+          <div class="eyebrow">AUTO / CONSENSUS</div>
+          <div class="big"><span id="fromCount">—</span> configurations</div>
+          <p id="consensusText">—</p>
         </div>
-        <div class="kcontrols">
-          <button data-k="3">3 groups</button>
-          <button data-k="5">5 groups</button>
-          <button id="recommendedBtn">Recommended</button>
-          <label>Custom k <input id="customK" type="number" min="2" value="5"/></label>
-          <button id="customBtn">Apply</button>
+        <div>
+          <div class="eyebrow">SELECTED RESULT</div>
+          <div class="big"><span id="selectedAlgorithm">—</span> · <span id="selectedK">—</span> groups</div>
+          <p id="selectedMetrics">—</p>
         </div>
       </div>
     </div>
 
     <div class="panel">
-      <h2>2. How many groups?</h2>
-      <p>Higher silhouette = cleaner separation. Compression = fewer maintained configurations.</p>
+      <h2>2. Algorithm comparison</h2>
+      <p>Each method is evaluated on the same selected dimensions.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Algorithm</th><th>Groups</th><th>Silhouette</th><th>Compression</th><th>Outliers</th><th>Score</th></tr></thead>
+          <tbody id="comparisonBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>3. Cluster map</h2>
+      <p>PCA projects the combined configuration features to 2D only for visualization; clustering itself uses the full feature space.</p>
+      <svg id="clusterPlot" viewBox="0 0 900 360" class="plot"></svg>
+    </div>
+
+    <div class="panel">
+      <h2>4. Number of groups quality</h2>
+      <p>For fixed-k algorithms, higher score means better separation with useful compression.</p>
       <div id="curve" class="curve"></div>
     </div>
 
     <div class="panel">
       <div class="panel-title">
         <div>
-          <h2>3. Proposed groups</h2>
+          <h2>5. Proposed groups</h2>
           <p id="groupSubtitle"></p>
         </div>
       </div>
@@ -81,15 +107,6 @@
   </div>
 </section>
 
-<section id="data" class="page hidden">
-  <div class="panel">
-    <h2>Real Grid'5000 rows</h2>
-    <p>Loaded only from local data/Grid5000.csv.</p>
-    <div class="tablewrap">
-      <table><thead id="sampleHead"></thead><tbody id="sampleBody"></tbody></table>
-    </div>
-  </div>
-</section>
 </main>
 <script src="/static/app.js"></script>
 </body>
