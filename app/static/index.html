@@ -57,55 +57,44 @@
 
   
   <div id="resultArea" class="hidden">
-    <div class="panel">
-      <div class="recommend">
-        <div>
-          <div class="eyebrow">AUTO / CONSENSUS</div>
-          <div class="big"><span id="fromCount">—</span> configurations</div>
-          <p id="consensusText">—</p>
-        </div>
-        <div>
-          <div class="eyebrow">SELECTED RESULT</div>
-          <div class="big"><span id="selectedAlgorithm">—</span> · <span id="selectedK">—</span> groups</div>
-          <p id="selectedMetrics">—</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <h2>2. Algorithm comparison</h2>
-      <p>Each method is evaluated on the same selected dimensions.</p>
-      <div class="tablewrap">
-        <table>
-          <thead><tr><th>Algorithm</th><th>Groups</th><th>Silhouette</th><th>Compression</th><th>Outliers</th><th>Score</th></tr></thead>
-          <tbody id="comparisonBody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="panel">
-      <h2>3. Cluster map</h2>
-      <p>PCA projects the combined configuration features to 2D only for visualization; clustering itself uses the full feature space.</p>
-      <svg id="clusterPlot" viewBox="0 0 900 360" class="plot"></svg>
-    </div>
-
-    <div class="panel">
-      <h2>4. Number of groups quality</h2>
-      <p>For fixed-k algorithms, higher score means better separation with useful compression.</p>
-      <div id="curve" class="curve"></div>
-    </div>
-
-    <div class="panel">
-      <div class="panel-title">
-        <div>
-          <h2>5. Proposed groups</h2>
-          <p id="groupSubtitle"></p>
-        </div>
-      </div>
-      <div id="groups"></div>
+  <div class="panel eval-hero">
+    <div>
+      <div class="eyebrow">AUTOMATIC EVALUATION RECOMMENDATION</div>
+      <div class="big"><span id="evalAlg">—</span> · <span id="evalK">—</span> clusters</div>
+      <p id="evalExplanation">—</p>
+      <div class="formula" id="evalFormula"></div>
     </div>
   </div>
-</section>
+
+  <div class="panel">
+    <h2>2. Automatic algorithm evaluation</h2>
+    <p>The recommendation is based on stability, ARI/NMI agreement and internal quality — not on majority vote for k.</p>
+    <div class="tablewrap"><table><thead><tr><th>Algorithm</th><th>Clusters</th><th>Silhouette ↑</th><th>Davies-Bouldin ↓</th><th>Calinski-Harabasz ↑</th><th>Stability ↑</th><th>Robustness ↑</th><th>Avg ARI ↑</th><th>Avg NMI ↑</th><th>Outliers</th><th>Evaluation score</th></tr></thead><tbody id="evalBody"></tbody></table></div>
+  </div>
+
+  <div class="panel">
+    <h2>3. Stability & robustness</h2>
+    <p>Stability refits each algorithm on 12 different 80% subsamples. Robustness adds small feature perturbations and checks whether assignments remain similar.</p>
+    <div id="stabilityBars" class="metric-bars"></div>
+  </div>
+
+  <div class="panel">
+    <h2>4. Cross-algorithm agreement</h2>
+    <p>ARI/NMI compare the actual assignments, not just the number of clusters. Two methods choosing k=2 can still disagree strongly.</p>
+    <div class="matrix-grid"><div><h3>Adjusted Rand Index</h3><div id="ariMatrix"></div></div><div><h3>Normalized Mutual Information</h3><div id="nmiMatrix"></div></div></div>
+  </div>
+
+  <div class="panel">
+    <h2>5. Selected clustering result</h2>
+    <div class="recommend"><div><div class="eyebrow">SELECTED</div><div class="big"><span id="selectedAlgorithm">—</span> · <span id="selectedK">—</span> clusters</div><p id="selectedMetrics">—</p></div></div>
+  </div>
+
+  <div class="panel"><h2>6. Cluster map</h2><p>PCA is used only for 2D visualization; clustering uses the full selected feature space. Gray points are HDBSCAN outliers, not an extra cluster.</p><div id="plotLegend" class="plot-legend"></div><svg id="clusterPlot" viewBox="0 0 900 360" class="plot"></svg></div>
+
+  <div class="panel"><h2>7. Number-of-clusters quality</h2><p>For fixed-k algorithms this shows the tested k values. HDBSCAN instead tests several min-cluster-size values.</p><div id="curve" class="curve"></div></div>
+
+  <div class="panel"><div class="panel-title"><div><h2>8. Proposed groups</h2><p id="groupSubtitle"></p></div></div><div id="groups"></div></div>
+</div></section>
 
 </main>
 <script src="/static/app.js"></script>

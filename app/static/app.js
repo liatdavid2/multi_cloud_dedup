@@ -1,143 +1,16 @@
-
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let statusData=null, analysisData=null;
-let selected=new Set(["site","cluster","cpu_model"]);
-
-async function jsonFetch(url,opts={}){
-  const r=await fetch(url,opts);
-  if(!r.ok) throw new Error(await r.text());
-  return r.json();
-}
-function fmt(n){return new Intl.NumberFormat().format(n??0)}
-function setLoading(x){$("#loading").classList.toggle("hidden",!x)}
-function showError(e){$("#error").textContent=e;$("#error").classList.remove("hidden")}
-function clearError(){$("#error").classList.add("hidden")}
-
-function renderPicker(cols){
-  $("#columnPicker").innerHTML=cols.map(c=>`
-    <label class="pick ${selected.has(c)?"selected":""}">
-      <input type="checkbox" value="${c}" ${selected.has(c)?"checked":""}/>
-      ${c}
-    </label>`).join("");
-  $$("#columnPicker input").forEach(i=>i.onchange=()=>{
-    if(i.checked) selected.add(i.value);
-    else selected.delete(i.value);
-    renderPicker(cols);
-  });
-}
-
-async function loadStatus(){
-  clearError();setLoading(true);
-  try{
-    const s=await jsonFetch("/api/status");
-    if(!s.ok) throw new Error(s.error);
-    statusData=s;
-    $("#nodes").textContent=fmt(s.rows);
-    $("#sites").textContent=fmt(s.sites);
-    $("#clusters").textContent=fmt(s.clusters);
-    renderPicker(s.columns);
-  }catch(e){showError(e.message)}
-  finally{setLoading(false)}
-}
-
-async function analyze(k=null){
-  if(selected.size<2){showError("Select at least 2 columns.");return}
-  clearError();setLoading(true);
-  try{
-    const cols=[...selected].join(",");
-    const alg=$("#algorithmSelect").value;
-    let url=`/api/analyze?columns=${encodeURIComponent(cols)}&algorithm=${encodeURIComponent(alg)}`;
-    if(k) url+=`&k=${k}`;
-    const a=await jsonFetch(url);
-    analysisData=a;
-    renderAnalysis(a);
-  }catch(e){showError(e.message)}
-  finally{setLoading(false)}
-}
-
-function pct(x){return `${(100*(x??0)).toFixed(1)}%`}
-
-function renderComparison(rows){
-  $("#comparisonBody").innerHTML=rows.map(r=>`
-    <tr>
-      <td><b>${r.algorithm}</b></td>
-      <td>${r.metrics.k}</td>
-      <td>${r.metrics.silhouette.toFixed(3)}</td>
-      <td>${pct(r.metrics.compression)}</td>
-      <td>${pct(r.metrics.outlier_rate)}</td>
-      <td><b>${r.metrics.score.toFixed(3)}</b></td>
-    </tr>`).join("");
-}
-
-function renderCurve(a){
-  if(!a.curve || !a.curve.length){
-    $("#curve").innerHTML=`<div class="muted-inline">This method chooses groups automatically; no fixed-k curve.</div>`;
-    return;
-  }
-  const maxScore=Math.max(...a.curve.map(p=>p.score),0.001);
-  $("#curve").innerHTML=a.curve.map(p=>{
-    const h=Math.max(5,Math.round((p.score/maxScore)*150));
-    const label=p.k ? `k=${p.k}` : `mcs=${p.min_cluster_size}`;
-    return `<div class="barwrap">
-      <div class="score">${p.score.toFixed(3)}</div>
-      <div class="bar" style="height:${h}px"></div>
-      <div class="barlabel">${label}</div>
-    </div>`
-  }).join("");
-}
-
-function clusterClass(c){
-  if(c===-1) return "noise";
-  return `c${Math.abs(c)%10}`;
-}
-function renderPlot(points){
-  const svg=$("#clusterPlot");
-  svg.innerHTML=`
-    <rect x="0" y="0" width="900" height="360" fill="white"/>
-    ${points.map(p=>{
-      const x=28+p.x*844;
-      const y=28+(1-p.y)*304;
-      return `<circle cx="${x}" cy="${y}" r="5" class="pt ${clusterClass(p.cluster)}"><title>Cluster ${p.cluster===-1?"Outlier":p.cluster+1}</title></circle>`;
-    }).join("")}
-  `;
-}
-
-function renderGroups(a){
-  $("#groupSubtitle").textContent=`${a.selected_algorithm} on: ${a.columns.join(" + ")}`;
-  $("#groups").innerHTML=a.groups.map(g=>`
-    <div class="group">
-      <div class="grouphead">
-        <b>${g.group==="Outliers"?"Outliers":`Group ${g.group}`}</b>
-        <div class="canon">${g.canonical ? Object.entries(g.canonical).map(([k,v])=>`<span class="chip">${k}: ${v}</span>`).join("") : ""}</div>
-        <div class="count">${g.configuration_count} configs</div>
-        <div class="count">${fmt(g.node_count)} nodes</div>
-      </div>
-      <div class="cluster-explain">${g.explanation}</div>
-      <div class="members">
-        ${g.members.map(m=>`
-          <div class="member">
-            <div class="vals">${Object.entries(m.values).map(([k,v])=>`<span class="val">${k}: ${v}</span>`).join("")}</div>
-            <div>${fmt(m.node_count)} nodes</div>
-          </div>`).join("")}
-      </div>
-    </div>`).join("");
-}
-
-function renderAnalysis(a){
-  $("#resultArea").classList.remove("hidden");
-  $("#uniqueCfg").textContent=fmt(a.unique_configurations);
-  $("#fromCount").textContent=fmt(a.unique_configurations);
-  $("#selectedAlgorithm").textContent=a.selected_algorithm;
-  $("#selectedK").textContent=a.selected_k;
-  $("#consensusText").textContent=`${a.consensus.agreement}. Votes: ${a.consensus.votes.join(", ")}`;
-  $("#selectedMetrics").textContent=`Silhouette ${a.metrics.silhouette.toFixed(3)} · Compression ${pct(a.metrics.compression)} · Outliers ${pct(a.metrics.outlier_rate)} · Score ${a.metrics.score.toFixed(3)}`;
-  renderComparison(a.comparison);
-  renderCurve(a);
-  renderPlot(a.projection);
-  renderGroups(a);
-}
-
-$("#analyzeBtn").onclick=()=>analyze();
-$("#algorithmSelect").onchange=()=>{ if(!$("#resultArea").classList.contains("hidden")) analyze(); };
-
-loadStatus();
+let selected=new Set(['site','cluster','cpu_model']);
+async function get(url){const r=await fetch(url);if(!r.ok)throw new Error(await r.text());return r.json()}
+function fmt(n){return new Intl.NumberFormat().format(n??0)} function pct(x){return `${((x??0)*100).toFixed(1)}%`}
+function loading(x){$('#loading').classList.toggle('hidden',!x)} function err(x){$('#error').textContent=x;$('#error').classList.remove('hidden')} function clear(){ $('#error').classList.add('hidden') }
+function picker(cols){$('#columnPicker').innerHTML=cols.map(c=>`<label class="pick ${selected.has(c)?'selected':''}"><input type="checkbox" value="${c}" ${selected.has(c)?'checked':''}/>${c}</label>`).join(''); $$('#columnPicker input').forEach(i=>i.onchange=()=>{i.checked?selected.add(i.value):selected.delete(i.value);picker(cols)})}
+async function status(){loading(true);try{let s=await get('/api/status');if(!s.ok)throw new Error(s.error);$('#nodes').textContent=fmt(s.rows);$('#sites').textContent=fmt(s.sites);$('#clusters').textContent=fmt(s.clusters);picker(s.columns)}catch(e){err(e.message)}finally{loading(false)}}
+function val(v,d=3){return v==null?'—':Number(v).toFixed(d)}
+function matrix(target,names,m){let h='<table class="matrix"><tr><th></th>'+names.map(n=>`<th>${n}</th>`).join('')+'</tr>';m.forEach((row,i)=>{h+=`<tr><th>${names[i]}</th>`+row.map(x=>`<td style="--v:${Math.max(0,Math.min(1,x))}">${x.toFixed(3)}</td>`).join('')+'</tr>'});$(target).innerHTML=h+'</table>'}
+function evalUI(e){$('#evalAlg').textContent=e.recommended_algorithm;$('#evalK').textContent=e.recommended_k;$('#evalExplanation').textContent=e.explanation;$('#evalFormula').textContent='Automatic score: '+e.formula;$('#evalBody').innerHTML=e.rows.map(r=>`<tr class="${r.algorithm===e.recommended_algorithm?'winner':''}"><td><b>${r.algorithm}</b></td><td>${r.metrics.k}</td><td>${val(r.metrics.silhouette)}</td><td>${val(r.metrics.davies_bouldin)}</td><td>${val(r.metrics.calinski_harabasz,1)}</td><td>${val(r.stability)}</td><td>${val(r.robustness)}</td><td>${val(r.avg_ari)}</td><td>${val(r.avg_nmi)}</td><td>${pct(r.metrics.outlier_rate)}</td><td><b>${val(r.evaluation_score)}</b></td></tr>`).join('');$('#stabilityBars').innerHTML=e.rows.map(r=>`<div class="metric-row"><b>${r.algorithm}</b><span>Stability</span><div class="meter"><i style="width:${r.stability*100}%"></i></div><strong>${r.stability.toFixed(3)}</strong><span>Robustness</span><div class="meter"><i style="width:${r.robustness*100}%"></i></div><strong>${r.robustness.toFixed(3)}</strong></div>`).join('');matrix('#ariMatrix',e.agreement.algorithms,e.agreement.ari);matrix('#nmiMatrix',e.agreement.algorithms,e.agreement.nmi)}
+function curve(a){if(!a.curve?.length){$('#curve').innerHTML='<span class="muted-inline">No curve available.</span>';return}let mx=Math.max(...a.curve.map(x=>x.score),.001);$('#curve').innerHTML=a.curve.map(p=>{let h=Math.max(5,Math.round(p.score/mx*150));let lab=p.min_cluster_size?`mcs=${p.min_cluster_size} → ${p.k} clusters`:`k=${p.k}`;return `<div class="barwrap"><div class="score">${p.score.toFixed(3)}</div><div class="bar" style="height:${h}px"></div><div class="barlabel">${lab}</div></div>`}).join('')}
+function cls(c){return c===-1?'noise':`c${Math.abs(c)%10}`}
+function plot(a){let pts=a.projection;$('#clusterPlot').innerHTML='<rect x="0" y="0" width="900" height="360" fill="white"/>'+pts.map(p=>`<circle cx="${28+p.x*844}" cy="${28+(1-p.y)*304}" r="5" class="pt ${cls(p.cluster)}"><title>${p.cluster===-1?'Outlier':`Cluster ${p.cluster+1}`}</title></circle>`).join('');let labs=[...new Set(pts.map(p=>p.cluster))].sort((a,b)=>a-b);$('#plotLegend').innerHTML=labs.map(c=>`<span><i class="legend-dot ${cls(c)}"></i>${c===-1?'Outliers / noise':`Cluster ${c+1}`}</span>`).join('')}
+function groups(a){$('#groupSubtitle').textContent=`${a.selected_algorithm} on ${a.columns.join(' + ')}`;$('#groups').innerHTML=a.groups.map(g=>`<div class="group"><div class="grouphead"><b>${g.group==='Outliers'?'Outliers':`Group ${g.group}`}</b><div class="canon">${g.canonical?Object.entries(g.canonical).map(([k,v])=>`<span class="chip">${k}: ${v}</span>`).join(''):''}</div><div class="count">${g.configuration_count} configs</div><div class="count">${fmt(g.node_count)} nodes</div></div><div class="cluster-explain">${g.explanation}</div><div class="members">${g.members.map(m=>`<div class="member"><div class="vals">${Object.entries(m.values).map(([k,v])=>`<span class="val">${k}: ${v}</span>`).join('')}</div><div>${fmt(m.node_count)} nodes</div></div>`).join('')}</div></div>`).join('')}
+async function analyze(){if(selected.size<2){err('Select at least 2 columns.');return}clear();loading(true);try{let u=`/api/analyze?columns=${encodeURIComponent([...selected].join(','))}&algorithm=${encodeURIComponent($('#algorithmSelect').value)}`;let a=await get(u);$('#resultArea').classList.remove('hidden');$('#uniqueCfg').textContent=fmt(a.unique_configurations);evalUI(a.evaluation);$('#selectedAlgorithm').textContent=a.selected_algorithm;$('#selectedK').textContent=a.selected_k;$('#selectedMetrics').textContent=`Silhouette ${val(a.metrics.silhouette)} · Davies-Bouldin ${val(a.metrics.davies_bouldin)} · Compression ${pct(a.metrics.compression)} · Outliers ${pct(a.metrics.outlier_rate)}`;plot(a);curve(a);groups(a)}catch(e){err(e.message)}finally{loading(false)}}
+$('#analyzeBtn').onclick=analyze;$('#algorithmSelect').onchange=()=>{if(!$('#resultArea').classList.contains('hidden'))analyze()};status();
