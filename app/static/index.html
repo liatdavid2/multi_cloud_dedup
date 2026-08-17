@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grid'5000 Configuration Clustering</title>
+<link rel="stylesheet" href="/static/styles.css"/>
+</head>
+<body>
+<aside>
+  <div class="brand">◈ Config Clustering</div>
+  <button class="nav active" data-page="analysis">Clustering</button>
+  <button class="nav" data-page="data">Real Data</button>
+  <div class="source">Source<br><b>Grid'5000 reference repository</b><br>No synthetic rows</div>
+</aside>
+
+<main>
+<header>
+  <div>
+    <h1>Infrastructure Configuration Clustering</h1>
+    <p>Choose three real Grid'5000 attributes and find how many configuration groups are worth maintaining.</p>
+  </div>
+  <button id="refreshBtn" class="secondary">Refresh Grid'5000 Data</button>
+</header>
+
+<div id="error" class="error hidden"></div>
+<div id="loading" class="loading hidden">Working… first Grid'5000 download may take some time.</div>
+
+<section id="analysis" class="page">
+  <div class="metrics">
+    <div class="card"><span>Nodes</span><strong id="nodes">—</strong></div>
+    <div class="card"><span>Sites</span><strong id="sites">—</strong></div>
+    <div class="card"><span>Clusters</span><strong id="clusters">—</strong></div>
+    <div class="card"><span>Unique selected configurations</span><strong id="uniqueCfg">—</strong></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">
+      <div>
+        <h2>1. Select configuration dimensions</h2>
+        <p>Exactly three columns are clustered together — not independently.</p>
+      </div>
+      <button id="analyzeBtn" class="primary">Analyze clustering</button>
+    </div>
+    <div id="columnPicker" class="picker"></div>
+  </div>
+
+  <div id="resultArea" class="hidden">
+    <div class="panel">
+      <div class="recommend">
+        <div>
+          <div class="eyebrow">RECOMMENDED</div>
+          <div class="big"><span id="fromCount">—</span> → <span id="recommendedK">—</span> groups</div>
+          <p>Balances cluster separation with configuration reduction.</p>
+        </div>
+        <div class="kcontrols">
+          <button data-k="3">3 groups</button>
+          <button data-k="5">5 groups</button>
+          <button id="recommendedBtn">Recommended</button>
+          <label>Custom k <input id="customK" type="number" min="2" value="5"/></label>
+          <button id="customBtn">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>2. How many groups?</h2>
+      <p>Higher silhouette = cleaner separation. Compression = fewer maintained configurations.</p>
+      <div id="curve" class="curve"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <div>
+          <h2>3. Proposed groups</h2>
+          <p id="groupSubtitle"></p>
+        </div>
+      </div>
+      <div id="groups"></div>
+    </div>
+  </div>
+</section>
+
+<section id="data" class="page hidden">
+  <div class="panel">
+    <h2>Real Grid'5000 rows</h2>
+    <p>Parsed directly from node JSON files in the official public reference repository.</p>
+    <div class="tablewrap">
+      <table><thead id="sampleHead"></thead><tbody id="sampleBody"></tbody></table>
+    </div>
+  </div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

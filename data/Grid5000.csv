@@ -1,0 +1,940 @@
+site,cluster,node,architecture,cpu_model,cpu_microarchitecture,cpu_count,cores,ram_gb,gpu_model,network_max_gbps,storage_device_count
+grenoble,chartreuse2,chartreuse2-1,x86_64,Intel Xeon,Broadwell,2,20,32.0,None,10.0,1
+grenoble,chartreuse2,chartreuse2-2,x86_64,Intel Xeon,Broadwell,2,20,32.0,None,10.0,1
+grenoble,chartreuse2,chartreuse2-3,x86_64,Intel Xeon,Broadwell,2,20,32.0,None,10.0,1
+grenoble,chartreuse2,chartreuse2-4,x86_64,Intel Xeon,Broadwell,2,20,32.0,None,10.0,1
+grenoble,chartreuse3,chartreuse3-1,x86_64,Intel Xeon,Haswell,2,16,64.0,None,10.0,1
+grenoble,chartreuse3,chartreuse3-2,x86_64,Intel Xeon,Haswell,2,16,64.0,None,10.0,1
+grenoble,chartreuse3,chartreuse3-3,x86_64,Intel Xeon,Haswell,2,16,64.0,None,10.0,1
+grenoble,chartreuse3,chartreuse3-4,x86_64,Intel Xeon,Haswell,2,16,64.0,None,10.0,1
+grenoble,chartreuse4,chartreuse4-1,x86_64,Intel Xeon,Skylake-SP,2,28,96.0,None,10.0,1
+grenoble,chartreuse4,chartreuse4-2,x86_64,Intel Xeon,Skylake-SP,2,28,96.0,None,10.0,1
+grenoble,chartreuse4,chartreuse4-3,x86_64,Intel Xeon,Skylake-SP,2,28,96.0,None,10.0,1
+grenoble,chartreuse4,chartreuse4-4,x86_64,Intel Xeon,Skylake-SP,2,28,96.0,None,10.0,1
+grenoble,chartreuse6,chartreuse6-1,x86_64,Intel Xeon,Skylake-SP,2,32,128.0,None,10.0,2
+grenoble,chartreuse6,chartreuse6-2,x86_64,Intel Xeon,Skylake-SP,2,32,128.0,None,10.0,2
+grenoble,chartreuse6,chartreuse6-3,x86_64,Intel Xeon,Skylake-SP,2,32,128.0,None,10.0,2
+grenoble,chartreuse6,chartreuse6-4,x86_64,Intel Xeon,Skylake-SP,2,32,128.0,None,10.0,2
+grenoble,chartreuse7,chartreuse7-1,x86_64,Intel Xeon,Sapphire Rapids,2,88,1024.0,None,10.0,1
+grenoble,dahu,dahu-1,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-10,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-11,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-12,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-13,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-14,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-15,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-16,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-17,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-18,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,10.0,3
+grenoble,dahu,dahu-19,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-2,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-20,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-21,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-22,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-23,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-24,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-25,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-26,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,10.0,3
+grenoble,dahu,dahu-27,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-28,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-29,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-3,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-30,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,10.0,3
+grenoble,dahu,dahu-31,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-32,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-4,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-5,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-6,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-7,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-8,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,dahu,dahu-9,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,3
+grenoble,drac,drac-10,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-11,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-12,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-2,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-3,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-7,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-8,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,drac,drac-9,ppc64le,POWER8NVL,POWER8,2,20,128.0,None,100.0,2
+grenoble,kinovis,kinovis-1,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,100.0,8
+grenoble,kinovis,kinovis-2,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,100.0,8
+grenoble,kinovis,kinovis-3,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,100.0,8
+grenoble,kinovis,kinovis-4,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,100.0,8
+grenoble,kinovis,kinovis-5,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,100.0,8
+grenoble,kinovis,kinovis-6,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,100.0,8
+grenoble,sasquatch,sasquatch-1,aarch64,Unknown,Ares,1,80,1024.0,None,25.0,1
+grenoble,sasquatch,sasquatch-2,aarch64,Unknown,Ares,1,80,1024.0,None,25.0,1
+grenoble,servan,servan-1,x86_64,AMD EPYC,Zen 2,2,48,128.0,None,100.0,2
+grenoble,servan,servan-2,x86_64,AMD EPYC,Zen 2,2,48,128.0,None,100.0,2
+grenoble,troll,troll-1,x86_64,Intel Xeon,Cascade Lake-SP,2,32,384.0,None,100.0,2
+grenoble,troll,troll-2,x86_64,Intel Xeon,Cascade Lake-SP,2,32,384.0,None,100.0,2
+grenoble,troll,troll-3,x86_64,Intel Xeon,Cascade Lake-SP,2,32,384.0,None,100.0,2
+grenoble,troll,troll-4,x86_64,Intel Xeon,Cascade Lake-SP,2,32,384.0,None,100.0,2
+grenoble,vercors10,vercors10-1,x86_64,Intel Xeon,Broadwell,2,8,64.0,None,10.0,1
+grenoble,vercors10,vercors10-2,x86_64,Intel Xeon,Broadwell,2,8,64.0,None,10.0,1
+grenoble,vercors10,vercors10-3,x86_64,Intel Xeon,Broadwell,2,8,64.0,None,10.0,1
+grenoble,vercors11,vercors11-1,x86_64,Intel Xeon,Skylake-SP,2,8,96.0,None,10.0,1
+grenoble,vercors12,vercors12-1,x86_64,Intel Xeon,Skylake-SP,2,8,64.0,None,10.0,1
+grenoble,vercors12,vercors12-2,x86_64,Intel Xeon,Skylake-SP,2,8,64.0,None,10.0,1
+grenoble,vercors12,vercors12-3,x86_64,Intel Xeon,Skylake-SP,2,8,64.0,None,10.0,1
+grenoble,vercors13,vercors13-1,x86_64,Intel Xeon,Cascade Lake-SP,2,48,192.0,None,10.0,2
+grenoble,vercors14,vercors14-1,x86_64,Intel Xeon,Sapphire Rapids,2,64,256.0,None,10.0,2
+grenoble,vercors14,vercors14-2,x86_64,Intel Xeon,Sapphire Rapids,2,64,256.0,None,10.0,2
+grenoble,vercors14,vercors14-3,x86_64,Intel Xeon,Sapphire Rapids,2,64,256.0,None,10.0,2
+grenoble,vercors14,vercors14-4,x86_64,Intel Xeon,Sapphire Rapids,2,64,256.0,None,10.0,2
+grenoble,vercors16,vercors16-1,x86_64,Intel Xeon,Sapphire Rapids,2,88,512.0,None,10.0,1
+grenoble,vercors17,vercors17-1,x86_64,Intel Xeon,Sapphire Rapids,2,88,512.0,None,10.0,1
+grenoble,vercors18,vercors18-1,x86_64,Intel Xeon,Granite Rapids,2,48,512.0,None,25.0,2
+grenoble,vercors18,vercors18-2,x86_64,Intel Xeon,Granite Rapids,2,48,512.0,None,25.0,2
+grenoble,vercors18,vercors18-3,x86_64,Intel Xeon,Granite Rapids,2,48,512.0,None,25.0,2
+grenoble,vercors2,vercors2-1,x86_64,Intel Xeon,Broadwell,2,20,64.0,None,1.0,2
+grenoble,vercors2,vercors2-2,x86_64,Intel Xeon,Broadwell,2,20,64.0,None,1.0,2
+grenoble,vercors3,vercors3-1,x86_64,Intel Xeon,Skylake-SP,2,20,96.0,None,10.0,2
+grenoble,vercors3,vercors3-2,x86_64,Intel Xeon,Skylake-SP,2,20,96.0,None,10.0,2
+grenoble,vercors4,vercors4-1,x86_64,Intel Xeon,Skylake-SP,2,20,96.0,None,10.0,2
+grenoble,vercors4,vercors4-2,x86_64,Intel Xeon,Skylake-SP,2,20,96.0,None,10.0,2
+grenoble,vercors4,vercors4-3,x86_64,Intel Xeon,Skylake-SP,2,20,96.0,None,10.0,2
+grenoble,vercors5,vercors5-1,x86_64,Intel Xeon,Cascade Lake-SP,2,40,384.0,None,1.0,2
+grenoble,vercors7,vercors7-1,x86_64,Intel Xeon,Cascade Lake-SP,2,24,96.0,None,10.0,2
+grenoble,vercors7,vercors7-2,x86_64,Intel Xeon,Cascade Lake-SP,2,24,96.0,None,10.0,2
+grenoble,vercors8,vercors8-1,x86_64,Intel Xeon,Cascade Lake-SP,2,24,96.0,None,10.0,2
+grenoble,vercors8,vercors8-2,x86_64,Intel Xeon,Cascade Lake-SP,2,24,96.0,None,10.0,2
+grenoble,vercors9,vercors9-1,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,vercors9,vercors9-2,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,vercors9,vercors9-3,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,vercors9,vercors9-4,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,vercors9,vercors9-5,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,vercors9,vercors9-6,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,vercors9,vercors9-7,x86_64,Intel Xeon,Haswell,2,8,64.0,None,1.0,1
+grenoble,yeti,yeti-1,x86_64,Intel Xeon,Skylake-SP,4,64,768.0,None,100.0,5
+grenoble,yeti,yeti-2,x86_64,Intel Xeon,Skylake-SP,4,64,768.0,None,100.0,6
+grenoble,yeti,yeti-3,x86_64,Intel Xeon,Skylake-SP,4,64,768.0,None,100.0,5
+grenoble,yeti,yeti-4,x86_64,Intel Xeon,Skylake-SP,4,64,768.0,None,100.0,6
+lille,chiclet,chiclet-1,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-2,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-3,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-4,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-5,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-6,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-7,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,3
+lille,chiclet,chiclet-8,x86_64,AMD EPYC,Zen,2,32,128.0,None,25.0,2
+lille,chifflot,chifflot-1,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-2,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-3,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-4,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-5,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-6,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-7,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chifflot,chifflot-8,x86_64,Intel Xeon,Skylake-SP,2,24,192.0,None,25.0,6
+lille,chirop,chirop-1,x86_64,Intel Xeon,Ice Lake-SP,2,64,512.0,None,25.0,3
+lille,chirop,chirop-2,x86_64,Intel Xeon,Ice Lake-SP,2,64,512.0,None,25.0,3
+lille,chirop,chirop-3,x86_64,Intel Xeon,Ice Lake-SP,2,64,512.0,None,25.0,3
+lille,chirop,chirop-4,x86_64,Intel Xeon,Ice Lake-SP,2,64,512.0,None,25.0,3
+lille,chirop,chirop-5,x86_64,Intel Xeon,Ice Lake-SP,2,64,512.0,None,25.0,3
+lille,chuc,chuc-1,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-2,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-3,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-4,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-5,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-6,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-7,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+lille,chuc,chuc-8,x86_64,AMD EPYC,Zen 3,1,32,512.0,None,25.0,4
+louvain,spirou,spirou-1,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-2,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-3,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-4,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-5,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-6,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-7,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+louvain,spirou,spirou-8,x86_64,Intel Xeon,Ice Lake-SP,2,48,256.0,None,100.0,2
+luxembourg,clervaux,clervaux-1,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-10,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-11,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-12,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-13,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-14,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-15,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-16,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-17,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-18,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-19,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-2,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-20,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-21,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-22,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-23,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-24,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-25,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-26,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-27,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-28,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-29,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-3,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-30,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-31,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-32,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-33,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-34,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-35,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-36,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-37,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-38,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-39,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-4,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-40,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-41,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-42,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-43,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-44,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-45,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-46,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-47,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-48,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-5,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-6,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-7,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-8,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,clervaux,clervaux-9,x86_64,Intel Xeon,Broadwell,2,28,128.0,None,10.0,1
+luxembourg,larochette,larochette-1,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,larochette,larochette-2,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,larochette,larochette-3,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,larochette,larochette-4,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,larochette,larochette-5,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,larochette,larochette-6,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,larochette,larochette-7,x86_64,Intel Xeon,Emerald Rapids,2,96,512.0,None,25.0,1
+luxembourg,vianden,vianden-1,x86_64,Intel Xeon,Sapphire Rapids,2,104,2048.0,None,100.0,1
+lyon,gemini,gemini-1,x86_64,Intel Xeon,Broadwell,2,40,512.0,None,10.0,5
+lyon,gemini,gemini-2,x86_64,Intel Xeon,Broadwell,2,40,512.0,None,10.0,5
+lyon,hercule,hercule-1,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,3
+lyon,hercule,hercule-2,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,3
+lyon,hercule,hercule-3,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,3
+lyon,hercule,hercule-4,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,3
+lyon,hydra,hydra-1,aarch64,Grace A02  CPU,Grace,1,72,480.0,None,10.0,2
+lyon,hydra,hydra-2,aarch64,Grace A02  CPU,Grace,1,72,480.0,None,10.0,2
+lyon,hydra,hydra-3,aarch64,Grace A02  CPU,Grace,1,72,480.0,None,10.0,2
+lyon,hydra,hydra-4,aarch64,Grace A02  CPU,Grace,1,72,480.0,None,10.0,2
+lyon,neowise,neowise-1,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-10,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-2,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-3,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-4,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-5,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-6,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-7,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-8,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,neowise,neowise-9,x86_64,AMD EPYC,Zen 2,1,48,512.0,None,100.0,1
+lyon,nova,nova-1,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-10,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-11,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-12,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-13,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-14,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-15,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-16,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-17,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-18,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-19,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-21,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-22,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-23,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-4,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-5,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-6,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-7,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-8,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,nova,nova-9,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,10.0,1
+lyon,orion,orion-1,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,orion,orion-3,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,orion,orion-4,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,pyxis,pyxis-1,aarch64,ThunderX2,Vulcan,2,64,256.0,None,10.0,2
+lyon,pyxis,pyxis-2,aarch64,ThunderX2,Vulcan,2,64,256.0,None,10.0,2
+lyon,pyxis,pyxis-3,aarch64,ThunderX2,Vulcan,2,64,256.0,None,10.0,2
+lyon,pyxis,pyxis-4,aarch64,ThunderX2,Vulcan,2,64,256.0,None,10.0,2
+lyon,sagittaire,sagittaire-11,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-12,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-13,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-14,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-15,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-16,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-3,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-4,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sagittaire,sagittaire-5,x86_64,AMD Opteron,K8,2,2,2.0,None,1.0,1
+lyon,sirius,sirius-1,x86_64,AMD EPYC,Zen 2,2,128,1024.0,None,100.0,6
+lyon,taurus,taurus-1,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-10,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-11,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-13,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-15,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-3,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-4,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-5,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-6,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-7,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-8,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+lyon,taurus,taurus-9,x86_64,Intel Xeon,Sandy Bridge,2,12,32.0,None,10.0,1
+nancy,graffiti,graffiti-1,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-10,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-11,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-13,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-2,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-3,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-4,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-5,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-6,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-7,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-8,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,graffiti,graffiti-9,x86_64,Intel Xeon,Skylake-SP,2,16,128.0,None,10.0,1
+nancy,grappe,grappe-1,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-10,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-11,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-12,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-13,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-14,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-15,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-16,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-2,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-3,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-4,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-5,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-6,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-7,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-8,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grappe,grappe-9,x86_64,Intel Xeon,Cascade Lake-SP,2,40,96.0,None,25.0,2
+nancy,grat,grat-1,x86_64,AMD EPYC,Zen 3,2,64,512.0,None,25.0,8
+nancy,gratouille,gratouille-1,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,10.0,2
+nancy,grdix,grdix-1,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-10,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-11,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-12,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-13,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-14,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-15,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-16,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-2,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-3,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-4,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-5,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-6,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-7,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-8,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grdix,grdix-9,x86_64,AMD EPYC,Zen 4c,2,256,1024.0,None,200.0,1
+nancy,grele,grele-1,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-10,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-11,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-12,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-13,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-2,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-3,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-4,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-5,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-6,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-7,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-8,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,grele,grele-9,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,100.0,2
+nancy,gres,gres-1,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gres,gres-2,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gres,gres-3,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gres,gres-4,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gres,gres-5,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gres,gres-6,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gres,gres-7,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,25.0,1
+nancy,gros,gros-1,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-10,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-100,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-101,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-102,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-103,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-104,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-105,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-106,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-107,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-108,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-109,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-11,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-110,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-111,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-112,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-113,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-114,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-115,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-116,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-117,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-118,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-119,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-12,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-120,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-121,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-122,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-123,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-124,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-13,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-14,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-15,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-16,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-17,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-18,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-19,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-2,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-20,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-21,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-22,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-23,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-24,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-25,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-26,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-27,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-28,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-29,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-3,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-30,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-31,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-32,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-33,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-34,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-35,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-36,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-37,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-38,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-39,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-4,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-40,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-41,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-42,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-43,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-44,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-45,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-46,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-47,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-48,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-49,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-5,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-50,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-51,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-52,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-53,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-54,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-55,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-56,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-57,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-58,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-59,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-6,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-60,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-61,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-62,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-63,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-64,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-65,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-66,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-67,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-68,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-69,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-7,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-70,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-71,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-72,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-73,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-74,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-75,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-76,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-77,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-78,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-79,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-8,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-80,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-81,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-82,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-83,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-84,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-85,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-86,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-87,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-88,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-89,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-9,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-90,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-91,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-92,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-93,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-94,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-95,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-96,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-97,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-98,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,gros,gros-99,x86_64,Intel Xeon,Cascade Lake-SP,1,18,96.0,None,25.0,2
+nancy,grosminet,grosminet-1,x86_64,Intel Xeon,Cascade Lake-SP,4,72,6144.0,None,25.0,8
+nancy,grostiti,grostiti-1,x86_64,Intel Xeon,Haswell,4,56,1536.0,None,100.0,3
+nancy,grouille,grouille-1,x86_64,AMD EPYC,Zen 2,2,64,128.0,None,25.0,2
+nancy,grouille,grouille-2,x86_64,AMD EPYC,Zen 2,2,64,128.0,None,25.0,2
+nancy,grue,grue-1,x86_64,AMD EPYC,Zen,2,32,128.0,None,10.0,1
+nancy,grue,grue-2,x86_64,AMD EPYC,Zen,2,32,128.0,None,10.0,1
+nancy,grue,grue-3,x86_64,AMD EPYC,Zen,2,32,128.0,None,10.0,1
+nancy,grue,grue-4,x86_64,AMD EPYC,Zen,2,32,128.0,None,10.0,1
+nancy,grue,grue-5,x86_64,AMD EPYC,Zen,2,32,128.0,None,10.0,1
+nancy,gruss,gruss-1,x86_64,AMD EPYC,Zen 2,2,48,256.0,None,25.0,1
+nancy,gruss,gruss-2,x86_64,AMD EPYC,Zen 2,2,48,256.0,None,25.0,1
+nancy,gruss,gruss-3,x86_64,AMD EPYC,Zen 2,2,48,256.0,None,25.0,1
+nancy,gruss,gruss-4,x86_64,AMD EPYC,Zen 2,2,48,256.0,None,25.0,1
+nancy,grvingt,grvingt-1,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-10,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-11,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-12,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-13,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-14,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-15,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-16,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-17,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-18,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-19,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-2,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-20,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-21,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-22,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-23,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-24,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-25,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-26,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-27,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-28,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-29,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-3,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-30,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-31,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-32,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-34,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-35,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-36,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-37,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-38,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-39,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-4,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-40,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-41,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-42,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-43,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-44,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-45,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-46,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-47,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-48,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-49,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-5,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-50,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-51,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-52,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-53,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-54,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-55,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-56,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-57,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-58,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-59,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-6,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-60,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-61,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-62,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-63,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-64,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-7,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-8,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nancy,grvingt,grvingt-9,x86_64,Intel Xeon,Skylake-SP,2,32,192.0,None,100.0,1
+nantes,econome,econome-1,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-10,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-11,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-12,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-13,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-14,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-15,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-16,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-17,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-18,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-19,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-2,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-20,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-21,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-22,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-23,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-24,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-3,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-4,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-5,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-6,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-7,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-8,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,econome,econome-9,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,10.0,1
+nantes,ecotaxe,ecotaxe-1,x86_64,AMD EPYC,Zen 3,2,56,256.0,None,100.0,3
+nantes,ecotaxe,ecotaxe-2,x86_64,AMD EPYC,Zen 3,2,56,256.0,None,100.0,3
+nantes,ecotype,ecotype-1,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-10,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-11,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-12,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-13,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-14,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-15,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-16,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-17,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-18,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-19,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-2,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-20,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-21,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-22,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-23,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-24,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-25,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-26,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-27,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-28,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-29,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-3,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-30,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-31,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-32,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-33,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-34,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-35,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-36,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-37,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-38,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-39,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-4,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-40,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-41,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-42,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-43,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-44,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-45,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-46,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-47,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-48,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-5,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-6,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-7,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-8,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+nantes,ecotype,ecotype-9,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,10.0,1
+rennes,abacus1,abacus1-1,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,1.0,1
+rennes,abacus10,abacus10-1,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,1.0,3
+rennes,abacus11,abacus11-1,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,1.0,3
+rennes,abacus12,abacus12-1,x86_64,Intel Xeon,Cascade Lake-SP,2,40,384.0,None,10.0,1
+rennes,abacus14,abacus14-1,x86_64,Intel Xeon,Cascade Lake-SP,2,24,384.0,None,10.0,2
+rennes,abacus16,abacus16-1,x86_64,Intel Xeon,Cascade Lake-SP,2,24,384.0,None,10.0,1
+rennes,abacus17,abacus17-1,x86_64,AMD EPYC,Zen 2,2,32,256.0,None,1.0,2
+rennes,abacus18,abacus18-1,x86_64,AMD EPYC,Zen 2,2,48,256.0,None,1.0,2
+rennes,abacus19,abacus19-1,x86_64,Intel Xeon,Cascade Lake-SP,2,48,384.0,None,1.0,2
+rennes,abacus2,abacus2-1,x86_64,Intel Xeon,Broadwell,2,16,64.0,None,1.0,1
+rennes,abacus20,abacus20-1,x86_64,Intel Xeon,Cascade Lake-SP,2,48,768.0,None,1.0,2
+rennes,abacus21,abacus21-1,x86_64,AMD EPYC,Zen 2,2,48,512.0,None,1.0,3
+rennes,abacus22,abacus22-1,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,2
+rennes,abacus22,abacus22-2,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,2
+rennes,abacus22,abacus22-3,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,2
+rennes,abacus25,abacus25-1,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,3
+rennes,abacus25,abacus25-2,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,3
+rennes,abacus25,abacus25-3,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,3
+rennes,abacus25,abacus25-4,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,10.0,3
+rennes,abacus26,abacus26-1,x86_64,Intel Xeon,Sapphire Rapids,2,48,256.0,None,10.0,1
+rennes,abacus27,abacus27-1,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,10.0,1
+rennes,abacus28,abacus28-1,x86_64,Intel Xeon,Cascade Lake-SP,2,32,384.0,None,10.0,1
+rennes,abacus29,abacus29-1,x86_64,AMD EPYC,Zen 5,2,32,256.0,None,10.0,1
+rennes,abacus3,abacus3-1,x86_64,Intel Xeon,Broadwell,2,16,128.0,None,1.0,3
+rennes,abacus4,abacus4-1,x86_64,Intel Xeon,Skylake-SP,2,20,128.0,None,1.0,1
+rennes,abacus5,abacus5-1,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,1.0,1
+rennes,abacus8,abacus8-1,x86_64,Intel Xeon,Skylake-SP,2,28,192.0,None,1.0,2
+rennes,abacus9,abacus9-1,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,10.0,1
+rennes,paradoxe,paradoxe-1,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-10,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-11,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-12,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-13,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-14,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-15,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-16,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-17,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-18,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-19,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-2,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-20,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-21,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-22,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-23,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-24,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-25,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-26,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-27,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-28,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-29,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-3,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-30,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-31,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-32,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-33,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-34,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-35,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-36,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-37,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-38,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-39,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-4,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-40,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-41,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-42,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-43,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-44,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-45,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-46,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-47,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-48,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-49,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-5,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-50,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-51,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-52,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-53,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-54,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-55,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-56,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-57,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-58,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-59,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-6,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-60,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-61,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-62,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-63,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-64,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-7,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-8,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,paradoxe,paradoxe-9,x86_64,Intel Xeon,Ice Lake-SP,2,52,384.0,None,25.0,2
+rennes,parasilo,parasilo-1,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-10,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-11,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-12,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-14,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-15,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-17,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-18,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-19,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-2,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-20,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-21,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-22,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-24,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-25,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-26,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-27,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-28,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-3,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-4,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-5,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-6,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-7,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-8,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,parasilo,parasilo-9,x86_64,Intel Xeon,Haswell,2,16,128.0,None,10.0,6
+rennes,roazhon1,roazhon1-1,x86_64,Intel Xeon,Skylake-SP,2,36,384.0,None,1.0,1
+rennes,roazhon10,roazhon10-1,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon10,roazhon10-2,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon10,roazhon10-3,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon10,roazhon10-4,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon11,roazhon11-1,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,1.0,1
+rennes,roazhon11,roazhon11-2,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,1.0,1
+rennes,roazhon11,roazhon11-3,x86_64,Intel Xeon,Sandy Bridge,2,16,64.0,None,1.0,1
+rennes,roazhon12,roazhon12-1,x86_64,Intel Xeon,Sandy Bridge,2,16,128.0,None,1.0,1
+rennes,roazhon12,roazhon12-2,x86_64,Intel Xeon,Sandy Bridge,2,16,128.0,None,1.0,1
+rennes,roazhon12,roazhon12-3,x86_64,Intel Xeon,Sandy Bridge,2,16,128.0,None,1.0,1
+rennes,roazhon12,roazhon12-4,x86_64,Intel Xeon,Sandy Bridge,2,16,128.0,None,1.0,1
+rennes,roazhon13,roazhon13-1,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-2,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-3,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-4,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-5,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-6,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-7,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon13,roazhon13-8,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,1
+rennes,roazhon14,roazhon14-1,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon14,roazhon14-2,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon14,roazhon14-3,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon14,roazhon14-4,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,10.0,2
+rennes,roazhon15,roazhon15-1,x86_64,AMD EPYC,Zen 5,2,128,1536.0,None,10.0,1
+rennes,roazhon2,roazhon2-1,x86_64,Intel Xeon,Skylake-SP,2,28,256.0,None,1.0,2
+rennes,roazhon3,roazhon3-1,x86_64,Intel Xeon,Skylake-SP,2,32,1024.0,None,10.0,2
+rennes,roazhon4,roazhon4-1,x86_64,AMD EPYC,Zen 2,2,128,512.0,None,1.0,2
+rennes,roazhon5,roazhon5-1,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-10,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-11,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-12,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-2,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-3,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-4,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-5,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-6,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-7,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon5,roazhon5-9,x86_64,Intel Xeon,Haswell,2,20,128.0,None,1.0,1
+rennes,roazhon6,roazhon6-1,x86_64,Intel Xeon,Broadwell,2,24,192.0,None,1.0,1
+rennes,roazhon6,roazhon6-2,x86_64,Intel Xeon,Broadwell,2,24,192.0,None,1.0,1
+rennes,roazhon6,roazhon6-3,x86_64,Intel Xeon,Broadwell,2,24,192.0,None,1.0,1
+rennes,roazhon6,roazhon6-4,x86_64,Intel Xeon,Broadwell,2,24,192.0,None,1.0,1
+rennes,roazhon7,roazhon7-1,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,10.0,1
+rennes,roazhon7,roazhon7-2,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,10.0,1
+rennes,roazhon7,roazhon7-3,x86_64,Intel Xeon,Broadwell,2,24,128.0,None,10.0,1
+rennes,roazhon8,roazhon8-1,x86_64,Intel Xeon,Broadwell,2,24,256.0,None,10.0,1
+rennes,roazhon8,roazhon8-2,x86_64,Intel Xeon,Broadwell,2,24,256.0,None,10.0,1
+rennes,roazhon8,roazhon8-3,x86_64,Intel Xeon,Broadwell,2,24,256.0,None,10.0,1
+rennes,roazhon8,roazhon8-4,x86_64,Intel Xeon,Broadwell,2,24,256.0,None,10.0,1
+rennes,roazhon9,roazhon9-1,x86_64,Intel Xeon,Skylake-SP,2,24,512.0,None,10.0,1
+rennes,roazhon9,roazhon9-2,x86_64,Intel Xeon,Skylake-SP,2,24,512.0,None,10.0,1
+rennes,roazhon9,roazhon9-3,x86_64,Intel Xeon,Skylake-SP,2,24,512.0,None,10.0,1
+rennes,roazhon9,roazhon9-4,x86_64,Intel Xeon,Skylake-SP,2,24,512.0,None,10.0,1
+sophia,esterel10,esterel10-1,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,56.0,3
+sophia,esterel10,esterel10-2,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,56.0,3
+sophia,esterel10,esterel10-3,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,56.0,3
+sophia,esterel11,esterel11-1,x86_64,Intel Xeon,Broadwell,2,16,128.0,None,40.0,2
+sophia,esterel11,esterel11-2,x86_64,Intel Xeon,Broadwell,2,16,128.0,None,40.0,2
+sophia,esterel12,esterel12-1,x86_64,Intel Xeon,Broadwell,2,20,64.0,None,40.0,2
+sophia,esterel13,esterel13-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel14,esterel14-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,56.0,3
+sophia,esterel15,esterel15-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel16,esterel16-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,3
+sophia,esterel17,esterel17-1,x86_64,Intel Xeon,Skylake-SP,2,16,480.0,None,56.0,2
+sophia,esterel19,esterel19-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel19,esterel19-2,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel2,esterel2-1,x86_64,Intel Xeon,Haswell,2,12,128.0,None,40.0,1
+sophia,esterel20,esterel20-1,x86_64,Intel Xeon,Skylake-SP,2,16,192.0,None,40.0,2
+sophia,esterel21,esterel21-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel22,esterel22-1,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,40.0,2
+sophia,esterel23,esterel23-1,x86_64,Intel Xeon,Cascade Lake-SP,2,16,192.0,None,40.0,2
+sophia,esterel23,esterel23-2,x86_64,Intel Xeon,Cascade Lake-SP,2,16,192.0,None,40.0,2
+sophia,esterel24,esterel24-1,x86_64,Intel Xeon,Cascade Lake-SP,2,48,384.0,None,40.0,2
+sophia,esterel25,esterel25-1,x86_64,Intel Xeon,Cascade Lake-SP,2,24,384.0,None,56.0,2
+sophia,esterel26,esterel26-1,x86_64,Intel Xeon,Cascade Lake-SP,2,32,384.0,None,40.0,2
+sophia,esterel27,esterel27-1,x86_64,Intel Xeon,Skylake-SP,2,20,256.0,None,40.0,2
+sophia,esterel28,esterel28-1,x86_64,Intel Xeon,Skylake-SP,2,24,384.0,None,56.0,2
+sophia,esterel29,esterel29-1,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel29,esterel29-2,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel29,esterel29-3,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel29,esterel29-4,x86_64,Intel Xeon,Skylake-SP,2,16,96.0,None,40.0,2
+sophia,esterel3,esterel3-1,x86_64,Intel Xeon,Broadwell,2,20,48.0,None,40.0,2
+sophia,esterel30,esterel30-1,x86_64,Intel Xeon,Cascade Lake-SP,2,16,384.0,None,56.0,2
+sophia,esterel31,esterel31-1,x86_64,Intel Xeon,Cascade Lake-SP,2,52,384.0,None,40.0,2
+sophia,esterel31,esterel31-2,x86_64,Intel Xeon,Cascade Lake-SP,2,52,384.0,None,40.0,2
+sophia,esterel31,esterel31-3,x86_64,Intel Xeon,Cascade Lake-SP,2,52,384.0,None,40.0,2
+sophia,esterel31,esterel31-4,x86_64,Intel Xeon,Cascade Lake-SP,2,52,384.0,None,40.0,2
+sophia,esterel32,esterel32-1,x86_64,Intel Xeon,Cascade Lake-SP,2,56,768.0,None,40.0,2
+sophia,esterel33,esterel33-1,x86_64,AMD EPYC,Zen 2,2,32,256.0,None,56.0,2
+sophia,esterel34,esterel34-1,x86_64,AMD EPYC,Zen 2,2,32,256.0,None,56.0,2
+sophia,esterel35,esterel35-1,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,40.0,2
+sophia,esterel35,esterel35-2,x86_64,AMD EPYC,Zen 3,2,48,512.0,None,40.0,2
+sophia,esterel36,esterel36-1,x86_64,AMD EPYC,Zen 2,2,96,1024.0,None,40.0,2
+sophia,esterel37,esterel37-1,x86_64,AMD EPYC,Zen 3,2,64,512.0,None,20.0,2
+sophia,esterel38,esterel38-1,x86_64,AMD EPYC,Zen 3,2,64,512.0,None,20.0,2
+sophia,esterel39,esterel39-1,x86_64,AMD EPYC,Zen 3,2,32,512.0,None,20.0,2
+sophia,esterel4,esterel4-1,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,40.0,2
+sophia,esterel40,esterel40-1,x86_64,AMD EPYC,Zen 3,2,32,256.0,None,40.0,2
+sophia,esterel40,esterel40-2,x86_64,AMD EPYC,Zen 3,2,32,256.0,None,40.0,2
+sophia,esterel41,esterel41-1,x86_64,Intel Xeon,Sapphire Rapids,2,32,512.0,None,56.0,2
+sophia,esterel42,esterel42-1,x86_64,Intel Xeon,Sierra Forest,2,128,2048.0,None,40.0,4
+sophia,esterel43,esterel43-1,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,40.0,1
+sophia,esterel44,esterel44-1,x86_64,AMD EPYC,Zen 4,2,32,512.0,None,200.0,1
+sophia,esterel5,esterel5-1,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,40.0,2
+sophia,esterel5,esterel5-2,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,40.0,2
+sophia,esterel6,esterel6-1,x86_64,Intel Xeon,Broadwell,2,24,64.0,None,40.0,2
+sophia,esterel7,esterel7-1,x86_64,Intel Xeon,Broadwell,2,16,128.0,None,40.0,2
+sophia,esterel7,esterel7-2,x86_64,Intel Xeon,Broadwell,2,16,128.0,None,40.0,2
+sophia,esterel8,esterel8-1,x86_64,Intel Xeon,Broadwell,2,20,128.0,None,56.0,2
+sophia,esterel9,esterel9-1,x86_64,Intel Xeon,Broadwell,2,20,64.0,None,56.0,3
+sophia,mercantour1,mercantour1-1,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,40.0,1
+sophia,mercantour1,mercantour1-10,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,40.0,1
+sophia,mercantour1,mercantour1-11,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-12,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-13,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-14,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-15,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-16,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-2,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,40.0,1
+sophia,mercantour1,mercantour1-3,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-4,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-5,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,40.0,1
+sophia,mercantour1,mercantour1-6,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,40.0,1
+sophia,mercantour1,mercantour1-7,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-8,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,56.0,1
+sophia,mercantour1,mercantour1-9,x86_64,Intel Xeon,Ivy Bridge,2,20,192.0,None,40.0,1
+sophia,mercantour2,mercantour2-1,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-2,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-3,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-4,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-5,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-6,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-7,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour2,mercantour2-8,x86_64,Intel Xeon,Ivy Bridge,2,16,256.0,None,40.0,1
+sophia,mercantour3,mercantour3-1,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-10,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-11,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-12,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-13,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-14,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-15,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-16,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-2,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-3,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-4,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-5,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-6,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-7,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-8,x86_64,Intel Xeon,Skylake-SP,2,20,192.0,None,56.0,1
+sophia,mercantour3,mercantour3-9,x86_64,Intel Xeon,Skylake-SP,2,20,176.0,None,56.0,1
+sophia,mercantour4,mercantour4-1,x86_64,Intel Xeon,Skylake-SP,4,80,1024.0,None,40.0,3
+sophia,mercantour5,mercantour5-1,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,56.0,2
+sophia,mercantour5,mercantour5-2,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,56.0,2
+sophia,mercantour5,mercantour5-3,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,56.0,2
+sophia,mercantour5,mercantour5-4,x86_64,Intel Xeon,Cascade Lake-SP,2,36,384.0,None,56.0,2
+sophia,mercantour6,mercantour6-1,x86_64,AMD EPYC,Zen 2,2,64,1024.0,None,56.0,2
+sophia,mercantour7,mercantour7-1,x86_64,AMD EPYC,Zen 2,2,64,384.0,None,56.0,2
+sophia,musa,musa-1,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,200.0,1
+sophia,musa,musa-2,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,200.0,1
+sophia,musa,musa-3,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,200.0,1
+sophia,musa,musa-4,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,200.0,1
+sophia,musa,musa-5,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,200.0,1
+sophia,musa,musa-6,x86_64,AMD EPYC,Zen 4,2,48,512.0,None,200.0,1
+sophia,uvb,uvb-10,x86_64,Intel Xeon,Westmere,2,12,96.0,None,40.0,1
+sophia,uvb,uvb-11,x86_64,Intel Xeon,Westmere,2,12,96.0,None,40.0,1
+sophia,uvb,uvb-12,x86_64,Intel Xeon,Westmere,2,12,96.0,None,40.0,1
+sophia,uvb,uvb-9,x86_64,Intel Xeon,Westmere,2,12,96.0,None,40.0,1
+strasbourg,engelbourg,engelbourg-1,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-2,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-3,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-4,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-5,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-6,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-7,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,engelbourg,engelbourg-8,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+strasbourg,fleckenstein,fleckenstein-1,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-10,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-2,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-3,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-4,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-5,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-6,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-7,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-8,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,fleckenstein,fleckenstein-9,x86_64,Intel Xeon,Ice Lake-SP,2,32,512.0,None,100.0,4
+strasbourg,ramstein,ramstein-1,x86_64,Intel Pentium,Broadwell,1,4,8.0,None,1.0,1
+toulouse,estats,estats-1,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-10,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-11,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-12,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-2,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-3,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-4,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-5,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-6,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-7,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-8,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,estats,estats-9,aarch64,Carmel,Carmel,1,8,32.0,None,1.0,1
+toulouse,montcalm,montcalm-1,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-10,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-2,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-3,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-4,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-5,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-6,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-7,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-8,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1
+toulouse,montcalm,montcalm-9,x86_64,Intel Xeon,Ice Lake-SP,2,32,256.0,None,10.0,1

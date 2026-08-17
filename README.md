@@ -1,24 +1,16 @@
-# Multi-Cloud Resource Deduplication & Consolidation
+# Grid'5000 Configuration Clustering
 
-## Dataset location
+Uses **real Grid'5000 reference-repository data**.
 
-Put your dataset here:
-
-```text
-multi_cloud_dedup/
-└─ data/
-   └─ Cloud_Dataset.csv
-```
-
-The filename must be exactly:
+The application automatically downloads the public Grid'5000 reference repository from GitHub on first use, parses node metadata, creates:
 
 ```text
-Cloud_Dataset.csv
+data/Grid5000.csv
 ```
 
-No ZIP and no extraction are needed.
+and runs mixed categorical/numeric configuration clustering.
 
-## Run with Docker
+## Run
 
 ```bash
 docker compose up --build
@@ -27,24 +19,21 @@ docker compose up --build
 Open:
 
 ```text
-http://localhost:2300
+http://localhost:7171
 ```
 
-## Run without Docker
+The first data download can take a little time.
 
-```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 2300
-```
+## UI workflow
 
-Then open:
+1. Download / refresh real Grid'5000 data.
+2. Select exactly 3 infrastructure columns.
+3. Click **Analyze clustering**.
+4. The system tests multiple values of `k`.
+5. It recommends a group count using:
+   - Silhouette separation
+   - Compression
+6. Choose the recommended k, 3 groups, 5 groups, or another k.
+7. See exactly which existing configurations belong to each proposed group.
 
-```text
-http://localhost:2300
-```
-
-The application:
-1. Reads `data/Cloud_Dataset.csv`
-2. Detects relevant CPU / memory / configuration columns
-3. Finds near-duplicate configuration values
-4. Creates consolidation recommendations
+No synthetic rows are generated.

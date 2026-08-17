@@ -1,9 +1,9 @@
 services:
-  multi-cloud-dedup:
+  grid5000-clustering:
     build: .
     ports:
       - "7171:8000"
     volumes:
       - ./data:/app/data
     environment:
-      DATA_FILE: /app/data/Cloud_Dataset.csv
+      DATA_DIR: /app/data

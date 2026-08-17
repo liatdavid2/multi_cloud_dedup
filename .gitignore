@@ -1,1 +1,3 @@
-*.csv
+/data/reference-repository-master/data/grid5000
+/data/reference-repository-master/input/grid5000
+/data/reference-repository-master
