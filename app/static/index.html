@@ -11,20 +11,20 @@
   <div class="brand">◈ Config Clustering</div>
   <button class="nav active" data-page="analysis">Clustering</button>
   <button class="nav" data-page="data">Real Data</button>
-  <div class="source">Source<br><b>Grid'5000 reference repository</b><br>No synthetic rows</div>
+  <div class="source">Source<br><b>Local data/Grid5000.csv</b><br>No Internet access</div>
 </aside>
 
 <main>
 <header>
   <div>
     <h1>Infrastructure Configuration Clustering</h1>
-    <p>Choose three real Grid'5000 attributes and find how many configuration groups are worth maintaining.</p>
+    <p>Choose any number of real Grid'5000 attributes and find how many configuration groups are worth maintaining.</p>
   </div>
-  <button id="refreshBtn" class="secondary">Refresh Grid'5000 Data</button>
+  
 </header>
 
 <div id="error" class="error hidden"></div>
-<div id="loading" class="loading hidden">Working… first Grid'5000 download may take some time.</div>
+<div id="loading" class="loading hidden">Loading local data/Grid5000.csv…</div>
 
 <section id="analysis" class="page">
   <div class="metrics">
@@ -38,7 +38,7 @@
     <div class="panel-title">
       <div>
         <h2>1. Select configuration dimensions</h2>
-        <p>Exactly three columns are clustered together — not independently.</p>
+        <p>Select two or more columns. All selected dimensions are clustered together as one combined configuration.</p>
       </div>
       <button id="analyzeBtn" class="primary">Analyze clustering</button>
     </div>
@@ -84,7 +84,7 @@
 <section id="data" class="page hidden">
   <div class="panel">
     <h2>Real Grid'5000 rows</h2>
-    <p>Parsed directly from node JSON files in the official public reference repository.</p>
+    <p>Loaded only from local data/Grid5000.csv.</p>
     <div class="tablewrap">
       <table><thead id="sampleHead"></thead><tbody id="sampleBody"></tbody></table>
     </div>

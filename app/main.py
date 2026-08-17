@@ -1,17 +1,14 @@
 from __future__ import annotations
 
-import io
-import json
 import os
-import re
+import json
 import shutil
 import zipfile
 from pathlib import Path
-from typing import Any
 
 import numpy as np
 import pandas as pd
-import requests
+import yaml
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -23,11 +20,10 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 APP_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(os.getenv("DATA_DIR", APP_DIR.parent / "data"))
 CSV_PATH = DATA_DIR / "Grid5000.csv"
-REPO_DIR = DATA_DIR / "reference-repository-master"
-REPO_ZIP = DATA_DIR / "reference-repository.zip"
 
-# Public mirror of Grid'5000's official reference repository.
-DOWNLOAD_URL = "https://github.com/grid5000/reference-repository/archive/refs/heads/master.zip"
+GITHUB_ARCHIVE_URL = "https://github.com/grid5000/reference-repository/archive/refs/heads/master.zip"
+REPO_ZIP = DATA_DIR / "reference-repository.zip"
+REPO_DIR = DATA_DIR / "reference-repository-master"
 
 app = FastAPI(title="Grid5000 Configuration Clustering")
 app.mount("/static", StaticFiles(directory=APP_DIR / "static"), name="static")
@@ -53,10 +49,7 @@ def human_bytes_to_gb(v):
         n = float(v)
     except Exception:
         return np.nan
-    # Grid'5000 sizes are commonly stored as bytes.
     if n > 1024**3:
-        return round(n / (1024**3), 2)
-    if n > 1024**2:
         return round(n / (1024**3), 2)
     return round(n, 2)
 
@@ -85,13 +78,11 @@ def fastest_network_gbps(d):
     rates = []
     if isinstance(adapters, list):
         for a in adapters:
-            if isinstance(a, dict):
-                r = a.get("rate")
-                if r is not None:
-                    try:
-                        rates.append(float(r))
-                    except Exception:
-                        pass
+            if isinstance(a, dict) and a.get("rate") is not None:
+                try:
+                    rates.append(float(a["rate"]))
+                except Exception:
+                    pass
     return rate_to_gbps(max(rates)) if rates else np.nan
 
 
@@ -100,117 +91,115 @@ def count_storage_devices(d):
     return len(x) if isinstance(x, list) else 0
 
 
-def download_reference_repository(force=False):
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    if CSV_PATH.exists() and not force:
-        return
+def parse_node(site, cluster, d, fallback_uid):
+    uid = d.get("uid") or d.get("name") or fallback_uid
 
-    if force:
-        if REPO_DIR.exists():
-            shutil.rmtree(REPO_DIR)
-        if REPO_ZIP.exists():
-            REPO_ZIP.unlink()
-        if CSV_PATH.exists():
-            CSV_PATH.unlink()
+    cpu_model = nested_get(
+        d, "processor.model", "processor.model_name", default="Unknown"
+    )
+    cpu_micro = nested_get(
+        d, "processor.microarchitecture", "processor.other_description", default="Unknown"
+    )
+    arch = nested_get(
+        d, "architecture.platform_type", "architecture.platform", default="Unknown"
+    )
+    cores = nested_get(
+        d, "architecture.nb_cores", "processor.nb_cores", default=np.nan
+    )
+    cpus = nested_get(
+        d, "architecture.nb_procs", "processor.nb_procs", default=np.nan
+    )
+    ram = nested_get(
+        d, "main_memory.ram_size", "main_memory.size", default=np.nan
+    )
 
-    r = requests.get(DOWNLOAD_URL, timeout=120)
-    r.raise_for_status()
-    REPO_ZIP.write_bytes(r.content)
+    return {
+        "site": site,
+        "cluster": cluster,
+        "node": uid,
+        "architecture": arch,
+        "cpu_model": str(cpu_model),
+        "cpu_microarchitecture": str(cpu_micro),
+        "cpu_count": cpus,
+        "cores": cores,
+        "ram_gb": human_bytes_to_gb(ram),
+        "gpu_model": first_gpu_model(d),
+        "network_max_gbps": fastest_network_gbps(d),
+        "storage_device_count": count_storage_devices(d),
+    }
 
-    with zipfile.ZipFile(REPO_ZIP, "r") as z:
-        z.extractall(DATA_DIR)
 
-    build_csv()
+def read_node_file(path: Path):
+    try:
+        text = path.read_text(encoding="utf-8")
+        if path.suffix.lower() == ".json":
+            data = json.loads(text)
+        else:
+            data = yaml.safe_load(text)
+        return data if isinstance(data, dict) else None
+    except Exception:
+        return None
 
 
-def build_csv():
+def build_csv_from_repository():
     sites_root = REPO_DIR / "data" / "grid5000" / "sites"
     if not sites_root.exists():
-        raise RuntimeError("Grid'5000 repository layout was not found after download.")
+        raise RuntimeError(
+            "The downloaded Grid'5000 repository does not contain "
+            "data/grid5000/sites."
+        )
+
+    node_files = []
+    for pattern in (
+        "*/clusters/*/nodes/*.json",
+        "*/clusters/*/nodes/*.yaml",
+        "*/clusters/*/nodes/*.yml",
+    ):
+        node_files.extend(sites_root.glob(pattern))
+
+    if not node_files:
+        raise RuntimeError(
+            "No node inventory files were found in the Grid'5000 repository."
+        )
 
     rows = []
-    # Expected official layout:
-    # sites/<site>/clusters/<cluster>/nodes/<node>.json
-    for node_file in sites_root.glob("*/clusters/*/nodes/*.json"):
-        parts = node_file.parts
+    for node_file in node_files:
         try:
-            site = parts[parts.index("sites") + 1]
-            cluster = parts[parts.index("clusters") + 1]
+            rel = node_file.relative_to(sites_root)
+            site = rel.parts[0]
+            cluster = rel.parts[2]
         except Exception:
             continue
 
-        try:
-            d = json.loads(node_file.read_text(encoding="utf-8"))
-        except Exception:
+        d = read_node_file(node_file)
+        if not d:
             continue
 
-        node = node_file.stem
-
-        cpu_model = nested_get(
-            d,
-            "processor.model",
-            "processor.model_name",
-            default="Unknown"
-        )
-        cpu_micro = nested_get(
-            d,
-            "processor.microarchitecture",
-            "processor.other_description",
-            default="Unknown"
-        )
-        arch = nested_get(
-            d,
-            "architecture.platform_type",
-            "architecture.platform",
-            default="Unknown"
-        )
-
-        cores = nested_get(
-            d,
-            "architecture.nb_cores",
-            "processor.nb_cores",
-            default=np.nan
-        )
-        cpus = nested_get(
-            d,
-            "architecture.nb_procs",
-            "processor.nb_procs",
-            default=np.nan
-        )
-        ram = nested_get(
-            d,
-            "main_memory.ram_size",
-            "main_memory.size",
-            default=np.nan
-        )
-
-        rows.append({
-            "site": site,
-            "cluster": cluster,
-            "node": node,
-            "architecture": arch,
-            "cpu_model": str(cpu_model),
-            "cpu_microarchitecture": str(cpu_micro),
-            "cpu_count": cpus,
-            "cores": cores,
-            "ram_gb": human_bytes_to_gb(ram),
-            "gpu_model": first_gpu_model(d),
-            "network_max_gbps": fastest_network_gbps(d),
-            "storage_device_count": count_storage_devices(d),
-        })
+        rows.append(parse_node(site, cluster, d, node_file.stem))
 
     if not rows:
-        raise RuntimeError("No Grid'5000 node JSON files were parsed.")
+        raise RuntimeError("Grid'5000 node files were found but none could be parsed.")
 
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame(rows).drop_duplicates(subset=["site", "cluster", "node"])
     for c in ["cpu_count", "cores", "ram_gb", "network_max_gbps", "storage_device_count"]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
+
+    df = df.sort_values(["site", "cluster", "node"]).reset_index(drop=True)
     df.to_csv(CSV_PATH, index=False)
 
 
+
+
 def load_df():
+    """
+    Local-only mode.
+    The application never downloads data or accesses the Internet.
+    Put Grid5000.csv in /app/data (host: ./data/Grid5000.csv).
+    """
     if not CSV_PATH.exists():
-        download_reference_repository(force=False)
+        raise FileNotFoundError(
+            f"Grid5000.csv was not found. Put the file here: {CSV_PATH}"
+        )
     return pd.read_csv(CSV_PATH)
 
 
@@ -244,9 +233,7 @@ def unique_configurations(df: pd.DataFrame, cols: list[str]):
             x[c] = x[c].fillna(med)
         else:
             x[c] = x[c].fillna("Unknown").astype(str)
-
-    grouped = x.groupby(cols, dropna=False).size().reset_index(name="node_count")
-    return grouped
+    return x.groupby(cols, dropna=False).size().reset_index(name="node_count")
 
 
 def encode_configs(cfg: pd.DataFrame, cols: list[str]):
@@ -255,7 +242,9 @@ def encode_configs(cfg: pd.DataFrame, cols: list[str]):
 
     transformers = []
     if cat:
-        transformers.append(("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), cat))
+        transformers.append(
+            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), cat)
+        )
     if num:
         transformers.append(("num", StandardScaler(), num))
 
@@ -267,35 +256,58 @@ def encode_configs(cfg: pd.DataFrame, cols: list[str]):
 def quality_curve(X, n_configs: int):
     if n_configs < 3:
         return []
+
     max_k = min(15, n_configs - 1)
     points = []
+
     for k in range(2, max_k + 1):
-        labels = AgglomerativeClustering(n_clusters=k, linkage="ward").fit_predict(X)
+        labels = AgglomerativeClustering(
+            n_clusters=k,
+            linkage="ward"
+        ).fit_predict(X)
+
         if len(set(labels)) < 2:
             continue
+
         sil = float(silhouette_score(X, labels))
-        # Normalize silhouette from [-1, 1] to [0, 1]
         sil01 = (sil + 1.0) / 2.0
         compression = (n_configs - k) / max(1, n_configs - 1)
+
+        # Separation is intentionally weighted more heavily than compression.
         combined = 0.75 * sil01 + 0.25 * compression
+
         points.append({
             "k": k,
             "silhouette": round(sil, 4),
             "compression": round(compression, 4),
             "score": round(combined, 4),
         })
+
     return points
 
 
-def cluster_details(cfg: pd.DataFrame, X: np.ndarray, cols: list[str], k: int):
-    labels = AgglomerativeClustering(n_clusters=k, linkage="ward").fit_predict(X)
+def json_safe(v):
+    if pd.isna(v):
+        return None
+    if hasattr(v, "item"):
+        return v.item()
+    return v
+
+
+def cluster_details(cfg, X, cols, k):
+    labels = AgglomerativeClustering(
+        n_clusters=k,
+        linkage="ward"
+    ).fit_predict(X)
+
     temp = cfg.copy()
     temp["_cluster"] = labels
-
     groups = []
+
     for label in sorted(temp["_cluster"].unique()):
         idx = np.where(labels == label)[0]
         Xg = X[idx]
+
         if len(idx) == 1:
             medoid_global_idx = idx[0]
         else:
@@ -306,15 +318,12 @@ def cluster_details(cfg: pd.DataFrame, X: np.ndarray, cols: list[str], k: int):
         medoid = cfg.iloc[medoid_global_idx]
         subset = temp[temp["_cluster"] == label].copy()
 
-        canonical = {c: (None if pd.isna(medoid[c]) else medoid[c].item() if hasattr(medoid[c], "item") else medoid[c]) for c in cols}
-
+        canonical = {c: json_safe(medoid[c]) for c in cols}
         members = []
+
         for _, r in subset.sort_values("node_count", ascending=False).iterrows():
             members.append({
-                "values": {
-                    c: (None if pd.isna(r[c]) else r[c].item() if hasattr(r[c], "item") else r[c])
-                    for c in cols
-                },
+                "values": {c: json_safe(r[c]) for c in cols},
                 "node_count": int(r["node_count"]),
             })
 
@@ -345,27 +354,20 @@ def status():
             "sites": int(df["site"].nunique()),
             "clusters": int(df["cluster"].nunique()),
             "columns": FEATURE_COLUMNS,
-            "csv": str(CSV_PATH.name),
+            "csv": CSV_PATH.name,
+            "source": "Local data/Grid5000.csv",
         }
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
-
-@app.post("/api/refresh")
-def refresh():
-    try:
-        download_reference_repository(force=True)
-        df = load_df()
-        return {"ok": True, "rows": int(len(df))}
-    except Exception as e:
-        raise HTTPException(500, str(e))
 
 
 @app.get("/api/sample")
 def sample():
     try:
         df = load_df()
-        return {"rows": df.head(20).replace({np.nan: None}).to_dict(orient="records")}
+        safe = df.head(20).where(pd.notnull(df.head(20)), None)
+        return {"rows": safe.to_dict(orient="records")}
     except Exception as e:
         raise HTTPException(500, str(e))
 
@@ -377,8 +379,9 @@ def analyze(
 ):
     try:
         cols = [c.strip() for c in columns.split(",") if c.strip()]
-        if len(cols) != 3:
-            raise HTTPException(400, "Select exactly 3 columns.")
+        if len(cols) < 2:
+            raise HTTPException(400, "Select at least 2 columns.")
+
         bad = [c for c in cols if c not in FEATURE_COLUMNS]
         if bad:
             raise HTTPException(400, f"Unsupported columns: {bad}")
@@ -386,18 +389,25 @@ def analyze(
         df = load_df()
         cfg = unique_configurations(df, cols)
         n = len(cfg)
+
         if n < 2:
-            raise HTTPException(400, "The selected columns create fewer than 2 unique configurations.")
+            raise HTTPException(
+                400,
+                "The selected columns create fewer than 2 unique configurations."
+            )
 
         X = encode_configs(cfg, cols)
         curve = quality_curve(X, n)
-        if not curve:
-            recommended_k = min(2, n)
-        else:
-            recommended_k = max(curve, key=lambda p: p["score"])["k"]
 
+        if curve:
+            recommended_k = max(curve, key=lambda p: p["score"])["k"]
+        else:
+            recommended_k = 2
+
+        max_allowed = n - 1 if n > 2 else 2
         selected_k = int(k or recommended_k)
-        selected_k = max(2, min(selected_k, n - 1 if n > 2 else 2))
+        selected_k = max(2, min(selected_k, max_allowed))
+
         groups = cluster_details(cfg, X, cols, selected_k)
 
         return {
@@ -409,6 +419,7 @@ def analyze(
             "curve": curve,
             "groups": groups,
         }
+
     except HTTPException:
         raise
     except Exception as e:

@@ -1,18 +1,25 @@
-# Grid'5000 Configuration Clustering
+# Grid'5000 Configuration Clustering — Local Only
 
-Uses **real Grid'5000 reference-repository data**.
+This version performs **zero downloads** and makes **no Internet requests**.
 
-The application automatically downloads the public Grid'5000 reference repository from GitHub on first use, parses node metadata, creates:
+Put your existing CSV here:
 
 ```text
-data/Grid5000.csv
+grid5000_config_clustering/
+└── data/
+    └── Grid5000.csv
 ```
 
-and runs mixed categorical/numeric configuration clustering.
+The filename must be exactly:
+
+```text
+Grid5000.csv
+```
 
 ## Run
 
 ```bash
+docker compose down
 docker compose up --build
 ```
 
@@ -22,18 +29,19 @@ Open:
 http://localhost:7171
 ```
 
-The first data download can take a little time.
+## Behavior
 
-## UI workflow
+- If `data/Grid5000.csv` exists, the app loads it immediately.
+- If the file is missing, the UI shows an error telling you where to place it.
+- There is no download code.
+- There is no Refresh button.
+- There is no Grid'5000 API access.
+- There is no GitHub access.
 
-1. Download / refresh real Grid'5000 data.
-2. Select exactly 3 infrastructure columns.
-3. Click **Analyze clustering**.
-4. The system tests multiple values of `k`.
-5. It recommends a group count using:
-   - Silhouette separation
-   - Compression
-6. Choose the recommended k, 3 groups, 5 groups, or another k.
-7. See exactly which existing configurations belong to each proposed group.
+## Clustering
 
-No synthetic rows are generated.
+- Select any 2 or more dimensions.
+- All selected dimensions are clustered together.
+- Multiple k values are evaluated.
+- Recommended k balances Silhouette separation and compression.
+- Compare 3, 5, recommended, or custom group counts.

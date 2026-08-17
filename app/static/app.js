@@ -27,9 +27,10 @@ function renderPicker(cols){
     </label>`).join("");
   $$("#columnPicker input").forEach(i=>i.onchange=()=>{
     if(i.checked){
-      if(selected.size>=3){i.checked=false;return}
       selected.add(i.value)
-    }else selected.delete(i.value);
+    }else{
+      selected.delete(i.value)
+    }
     renderPicker(cols);
   });
 }
@@ -49,7 +50,7 @@ async function loadStatus(){
 }
 
 async function analyze(k=null){
-  if(selected.size!==3){showError("Select exactly 3 columns.");return}
+  if(selected.size<2){showError("Select at least 2 columns.");return}
   clearError();setLoading(true);
   try{
     const cols=[...selected].join(",");
@@ -103,15 +104,7 @@ $("#analyzeBtn").onclick=()=>analyze();
 $$("[data-k]").forEach(b=>b.onclick=()=>analyze(parseInt(b.dataset.k)));
 $("#customBtn").onclick=()=>analyze(parseInt($("#customK").value));
 
-$("#refreshBtn").onclick=async()=>{
-  clearError();setLoading(true);
-  try{
-    await jsonFetch("/api/refresh",{method:"POST"});
-    await loadStatus();
-    $("#resultArea").classList.add("hidden");
-  }catch(e){showError(e.message)}
-  finally{setLoading(false)}
-};
+
 
 async function loadSample(){
   if($("#sampleBody").children.length) return;
