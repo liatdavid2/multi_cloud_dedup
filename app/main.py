@@ -162,6 +162,9 @@ def stability_score(X, full_labels, alg, params, runs=12, fraction=.8):
 
 
 def perturbation_robustness(X, base_labels, algorithm, k=None, runs=15, sample_fraction=0.90):
+    if isinstance(k, dict):
+        k = k.get('k')
+
     """
     Robustness via repeated 90% subsampling.
 
@@ -272,7 +275,8 @@ def evaluation_bundle(X,n,result_rows):
     names,ari,nmi=agreement_matrices(result_rows)
     for i,r in enumerate(result_rows):
         r['stability']=stability_score(X,r['_labels'],r['algorithm'],r['_params'])
-        r['robustness']=perturbation_robustness(X,r['_labels'],r['algorithm'],r['_params'])
+        robustness_k = r['_params'].get('k') if r['algorithm'] in ('agglomerative','kmeans') else None
+        r['robustness']=perturbation_robustness(X,r['_labels'],r['algorithm'],robustness_k)
         others=[j for j in range(len(result_rows)) if j!=i]
         r['avg_ari']=float(np.mean([ari[i][j] for j in others])) if others else 1.0
         r['avg_nmi']=float(np.mean([nmi[i][j] for j in others])) if others else 1.0
@@ -497,9 +501,10 @@ def analyze(columns:str=Query('site,cluster,cpu_model'),algorithm:str=Query('aut
             labels,metrics,curve,params=selected['_labels'],selected['metrics'],selected['curve'],selected['_params']
 
         comparison=[{'algorithm':r['algorithm'],'metrics':r['metrics']} for r in raw]
+        stable_range=derive_stable_range(curve,int(metrics['k']))
         groups=cluster_details(cfg,X,cols,labels)
         return {'columns':cols,'nodes':int(len(df)),'unique_configurations':int(n),'selected_algorithm':chosen_alg,
-                'selected_k':int(metrics['k']),'metrics':metrics,'curve':curve,'comparison':comparison,
+                'selected_k':int(metrics['k']),'stable_range':stable_range,'metrics':metrics,'curve':curve,'comparison':comparison,
                 'evaluation':evaluation,'groups':groups,'projection':projection_points(X,labels)}
     except HTTPException: raise
     except Exception as e: raise HTTPException(500,str(e))

@@ -65,3 +65,9 @@ Numeric fields such as:
 are excluded from both the UI and backend analysis.
 
 All selected features are represented using One-Hot Encoding only.
+
+## Fixed evaluation wiring
+
+- `stable_range` is now computed and returned by `/api/analyze`.
+- Agglomerative and K-Means robustness receive a numeric `k`, not the internal params dictionary.
+- Defensive handling remains if a dict is ever passed accidentally.
