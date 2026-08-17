@@ -41,3 +41,27 @@ For each algorithm the application:
 HDBSCAN stable-range logic now uses the **actual number of clusters produced**
 for each tested `min_cluster_size`, so ranges such as `2–4 clusters` can be
 shown correctly.
+
+
+## Categorical-only mode
+
+The application now supports categorical configuration dimensions only.
+
+Available dimensions:
+- site
+- cluster
+- architecture
+- cpu_model
+- cpu_microarchitecture
+- gpu_model
+
+Numeric fields such as:
+- cpu_count
+- cores
+- ram_gb
+- network_max_gbps
+- storage_device_count
+
+are excluded from both the UI and backend analysis.
+
+All selected features are represented using One-Hot Encoding only.

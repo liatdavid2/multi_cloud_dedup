@@ -41,26 +41,35 @@ def load_df():
     return pd.read_csv(CSV_PATH)
 
 
-def unique_configurations(df, cols):
-    x=df[cols].copy()
+def unique_configurations(df: pd.DataFrame, cols: list[str]):
+    """
+    Build unique categorical configuration combinations.
+    All selected columns are treated strictly as categorical values.
+    """
+    x = df[cols].copy()
+
     for c in cols:
-        if c in NUMERIC_COLUMNS:
-            x[c]=pd.to_numeric(x[c], errors='coerce')
-            med=x[c].median()
-            x[c]=x[c].fillna(0 if pd.isna(med) else med)
-        else:
-            x[c]=x[c].fillna('Unknown').astype(str)
-    return x.groupby(cols, dropna=False).size().reset_index(name='node_count')
+        x[c] = x[c].fillna("Unknown").astype(str)
+
+    return (
+        x.groupby(cols, dropna=False)
+         .size()
+         .reset_index(name="node_count")
+    )
 
 
-def encode_configs(cfg, cols):
-    cat=[c for c in cols if c not in NUMERIC_COLUMNS]
-    num=[c for c in cols if c in NUMERIC_COLUMNS]
-    tr=[]
-    if cat: tr.append(('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), cat))
-    if num: tr.append(('num', StandardScaler(), num))
-    pre=ColumnTransformer(tr, remainder='drop')
-    return np.asarray(pre.fit_transform(cfg[cols]), dtype=float)
+def encode_configs(cfg: pd.DataFrame, cols: list[str]):
+    """
+    Categorical-only representation.
+    Every selected dimension is one-hot encoded.
+    No numeric scaling or numeric distance is used.
+    """
+    encoder = OneHotEncoder(
+        handle_unknown="ignore",
+        sparse_output=False
+    )
+    X = encoder.fit_transform(cfg[cols].astype(str))
+    return np.asarray(X, dtype=float)
 
 
 def internal_metrics(labels, X, n):
@@ -402,21 +411,30 @@ def json_safe(v):
     return v.item() if hasattr(v,'item') else v
 
 
-def explain_cluster(subset,cols):
-    parts=[]
+def explain_cluster(subset, cols):
+    """
+    Deterministic categorical explanation without an LLM.
+    Reports dominant categorical values and their prevalence.
+    """
+    parts = []
+
     for c in cols:
-        s=subset[c]
-        if c in NUMERIC_COLUMNS:
-            vals=pd.to_numeric(s,errors='coerce').dropna()
-            if len(vals):
-                lo,hi,med=float(vals.min()),float(vals.max()),float(vals.median())
-                parts.append(f'{c} is consistently {round(med,2)}' if abs(hi-lo)<1e-9 else f'{c} ranges {round(lo,2)}–{round(hi,2)} (median {round(med,2)})')
+        vc = subset[c].fillna("Unknown").astype(str).value_counts()
+        if len(vc) == 0:
+            continue
+
+        top = str(vc.index[0])
+        share = float(vc.iloc[0] / max(1, vc.sum()))
+
+        if share >= 0.80:
+            parts.append(f"{c} is predominantly {top} ({round(share * 100)}%)")
+        elif share >= 0.60:
+            parts.append(f"{c} is mostly {top} ({round(share * 100)}%)")
         else:
-            vc=s.astype(str).value_counts()
-            if len(vc):
-                share=vc.iloc[0]/vc.sum(); top=vc.index[0]
-                parts.append(f'mostly {c}={top} ({round(share*100)}%)' if share>=.7 else f"{c} is mixed; common values: {', '.join(vc.head(3).index)}")
-    return '; '.join(parts[:5])+'.'
+            common = ", ".join(map(str, vc.head(3).index.tolist()))
+            parts.append(f"{c} is mixed; common values: {common}")
+
+    return "; ".join(parts[:6]) + "."
 
 
 def cluster_details(cfg,X,cols,labels):

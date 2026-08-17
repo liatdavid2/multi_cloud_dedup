@@ -17,7 +17,7 @@
 <header>
   <div>
     <h1>Infrastructure Configuration Clustering</h1>
-    <p>Choose any number of real Grid'5000 attributes and find how many configuration groups are worth maintaining.</p>
+    <p>Choose categorical Grid'5000 attributes and find how many configuration groups are worth maintaining.</p>
   </div>
   
 </header>
@@ -37,11 +37,12 @@
     <div class="panel-title">
       <div>
         <h2>1. Select configuration dimensions</h2>
-        <p>Select two or more columns. All selected dimensions are clustered together as one combined configuration.</p>
+        <p>Select two or more categorical columns. All selected dimensions are clustered together as one combined configuration.</p>
       </div>
       <button id="analyzeBtn" class="primary">Analyze clustering</button>
     </div>
-    <div id="columnPicker" class="picker"></div>
+    <div class="categorical-note"><b>Categorical-only mode:</b> numeric fields such as cores, RAM, CPU count, network speed and storage count are excluded.</div>
+<div id="columnPicker" class="picker"></div>
     <div class="algorithm-row">
       <label><b>Clustering method</b>
         <select id="algorithmSelect">

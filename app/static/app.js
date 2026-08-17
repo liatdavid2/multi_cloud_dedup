@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let selected=new Set(['site','cluster','cpu_model']);
+let selected=new Set(["cluster","architecture","cpu_model","gpu_model"]);
 async function get(url){const r=await fetch(url);if(!r.ok)throw new Error(await r.text());return r.json()}
 function fmt(n){return new Intl.NumberFormat().format(n??0)} function pct(x){return `${((x??0)*100).toFixed(1)}%`}
 function loading(x){$('#loading').classList.toggle('hidden',!x)} function err(x){$('#error').textContent=x;$('#error').classList.remove('hidden')} function clear(){ $('#error').classList.add('hidden') }
